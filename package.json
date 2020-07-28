@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-mdx-basic",
-  "description": "Gatsby starter MDX basic",
-  "version": "1.0.0",
-  "author": "Chris Biscardi <chris@christopherbiscardi.com>",
+  "name": "100days100films",
+  "description": "A project for 100 films in straight 100 days",
+  "version": "0.0.1",
+  "author": "Shashank Shekhar(shashank7200@gmail.com)",
   "dependencies": {
     "@mdx-js/mdx": "^1.1.5",
     "@mdx-js/react": "^1.1.5",
@@ -36,6 +36,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/christopherbiscardi/gatsby-starter-mdx-basic"
+    "url": "https://github.com/ashwamegh/100days100films"
   }
 }
