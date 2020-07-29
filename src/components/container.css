@@ -9,10 +9,15 @@ body {
     font-weight: normal;
     word-wrap: break-word;
     font-kerning: normal;
-    font-feature-settings: "kern", "liga", "clig", "calt";
+    font-feature-settings: "pnum", "lnum", "cpsp";
     height: 100%;
     width: 100%;
     margin: 0;
+}
+
+::selection {
+    color: red;
+    background: yellow;
 }
 
 a,
@@ -29,10 +34,24 @@ p {
 }
 
 /* Header */
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.header-links {
+    display: flex;
+    flex-direction: row;
+    font-size: 36px;
+}
+
 .title {
     display: flex;
     flex-direction: row;
     font-size: 64px;
+    align-content: baseline;
 }
 
 .title .horizontal {

@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'helveticaregular';
+    src: url('./helvetica-webfont.woff2') format('woff2'),
+         url('./helvetica-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
