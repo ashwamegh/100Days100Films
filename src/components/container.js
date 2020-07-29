@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from './../store';
+import './container.css';
 
 export default ({ children }) => {
     const { state } = useContext(ThemeContext);

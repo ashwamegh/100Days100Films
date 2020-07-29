@@ -17,7 +17,7 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <>
+      <div className="app-wrapper">
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
           style={{
@@ -31,7 +31,7 @@ const Layout = ({ children }) => (
         >
           {children}
         </div>
-      </>
+      </div>
     )}
   />
 )

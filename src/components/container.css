@@ -1,0 +1,65 @@
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: "helveticaregular", Arial, sans-serif;
+    font-weight: normal;
+    word-wrap: break-word;
+    font-kerning: normal;
+    font-feature-settings: "kern", "liga", "clig", "calt";
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+a,
+a:hover,
+a:visited,
+a:focus {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1,
+p {
+    margin: 0;
+}
+
+/* Header */
+.title {
+    display: flex;
+    flex-direction: row;
+    font-size: 64px;
+}
+
+.title .horizontal {
+    font-size: 114px;
+}
+
+.title .vertical {
+    font-size: 36px;
+    width: 36px;
+}
+
+/* Custom classes */
+.app-wrapper {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.rotate-wrapper {
+    position: relative;
+}
+
+.rotate-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.rotate {
+    transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
+}
