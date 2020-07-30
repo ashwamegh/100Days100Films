@@ -38,13 +38,21 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: baseline;
+	align-items: baseline;
+	padding: 40px 0px;
 }
 
 .header-links {
     display: flex;
     flex-direction: row;
-    font-size: 36px;
+	font-size: 36px;
+	font-weight: bold;
+	align-items: flex-end;
+}
+
+.header-links img {
+	margin-left: 22px;
+	cursor: pointer;
 }
 
 .title {
@@ -55,12 +63,14 @@ header {
 }
 
 .title .horizontal {
-    font-size: 114px;
+	font-size: 114px;
+	font-weight: bold;
 }
 
 .title .vertical {
     font-size: 36px;
-    width: 36px;
+	width: 36px;
+	font-weight: bold;
 }
 
 /* Custom classes */

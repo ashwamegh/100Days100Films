@@ -6,7 +6,7 @@ export default ({ children }) => {
     const { state } = useContext(ThemeContext);
     return (
         <div 
-            class="app-container"
+            className="app-container"
             style={{
                 backgroundColor: state.backgroundColor,
                 color: state.color
