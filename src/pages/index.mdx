@@ -2,8 +2,19 @@ import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 import Toolbar from '../components/Toolbar'
+import FilmItem from '../components/FilmItem'
 import Image from '../components/image'
 import SEO from '../components/seo'
 
 <SEO title="Home" keywords={['gatsby', 'application', 'react']} />
 <Toolbar />
+<div
+	style={{
+		display: 'flex',
+		flexDirection: 'row',
+		flexWrap: 'wrap',
+		justifyContent: 'space-between'
+	}}
+>
+	{ [0,1,2,3,4,5,6,7].map((film, index) => <FilmItem key={index}/>) }
+</div>
