@@ -50,7 +50,7 @@ header {
 	align-items: flex-end;
 }
 
-.header-links img {
+.header-links .accent-switcher {
 	margin-left: 22px;
 	cursor: pointer;
 }
