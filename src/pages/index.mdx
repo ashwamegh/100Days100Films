@@ -6,6 +6,8 @@ import FilmItem from '../components/FilmItem'
 import Image from '../components/image'
 import SEO from '../components/seo'
 
+import films from './../content/films.json'
+
 <SEO title="Home" keywords={['gatsby', 'application', 'react']} />
 <Toolbar />
 <div
@@ -16,5 +18,15 @@ import SEO from '../components/seo'
 		justifyContent: 'space-between'
 	}}
 >
-	{ [0,1,2,3,4,5,6,7].map((film, index) => <FilmItem key={index}/>) }
+	{ films.map((film, index) => 
+		<FilmItem 
+			key={index}
+			imageUrl={film.imageUrl}
+			filmName={film.filmName}
+			filmYear={film.filmYear}
+			filmRating={film.filmRating}
+			filmDay={film.filmDay}
+			filmWatchDate={film.filmWatchDate}
+		/>)
+	}
 </div>

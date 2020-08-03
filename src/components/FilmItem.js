@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import Rating from 'react-rating';
+import StarRatings from 'react-star-ratings';
 import { ThemeContext } from '../store';
+import './FilmItem.css';
 
-export default function FilmItem({ imageURL, filmName, filmRating, filmYear, filmDay, filmWatchDate }) {
+export default function FilmItem({ imageUrl, filmName, filmRating, filmYear, filmDay, filmWatchDate }) {
 	const { state } = useContext(ThemeContext);
 	return (
 		<div
@@ -16,38 +17,67 @@ export default function FilmItem({ imageURL, filmName, filmRating, filmYear, fil
 				marginBottom: 50,
 				// marginRight: 40,
 				boxShadow: '8px 8px 20px 8px rgba(0, 0, 0, 0.25)',
-				borderRadius: '0px 18px 18px 18px',
+				borderRadius: '18px',
+				fontFamily: "'Poppins', sans-serif"
 			}}
 		>
 			<div
 				style={{
 					position: 'absolute',
-					width: 56,
-					height: 56,
-					background: state.backgroundColor,
-					opacity: '0.75',
+					// background: state.backgroundColor,
+					// color: state.color,
+					backgroundColor: '#FED700',
+					color: '#222',
+					borderTopLeftRadius: 18,
+					fontSize: 14,
+					height: 'auto',
+					lineHeight: 'normal',
+					padding: '4px 6px',
 					zIndex: 10,
-					top: -17,
-					left: -5,
+					top: 0,
+					left: 0,
 				}}
 			>
-				<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<rect width="56" height="56" fill={state.backgroundColor}/>
-					<path d="M53.375 7H50.75V6.125C50.75 5.89294 50.6578 5.67038 50.4937 5.50628C50.3296 5.34219 50.1071 5.25 49.875 5.25H43.75V4.375C43.75 3.67881 43.4734 3.01113 42.9812 2.51884C42.4889 2.02656 41.8212 1.75 41.125 1.75C40.4288 1.75 39.7611 2.02656 39.2688 2.51884C38.7766 3.01113 38.5 3.67881 38.5 4.375V5.25H36.75V4.375C36.75 3.67881 36.4734 3.01113 35.9812 2.51884C35.4889 2.02656 34.8212 1.75 34.125 1.75C33.4288 1.75 32.7611 2.02656 32.2688 2.51884C31.7766 3.01113 31.5 3.67881 31.5 4.375V5.25H21V4.375C21 3.67881 20.7234 3.01113 20.2312 2.51884C19.7389 2.02656 19.0712 1.75 18.375 1.75C17.6788 1.75 17.0111 2.02656 16.5188 2.51884C16.0266 3.01113 15.75 3.67881 15.75 4.375V5.25H14V4.375C14 3.67881 13.7234 3.01113 13.2312 2.51884C12.7389 2.02656 12.0712 1.75 11.375 1.75C10.6788 1.75 10.0111 2.02656 9.51884 2.51884C9.02656 3.01113 8.75 3.67881 8.75 4.375V5.25H2.625C2.39294 5.25 2.17038 5.34219 2.00628 5.50628C1.84219 5.67038 1.75 5.89294 1.75 6.125V49.875C1.75 50.1071 1.84219 50.3296 2.00628 50.4937C2.17038 50.6578 2.39294 50.75 2.625 50.75H3.5V53.375C3.5 53.6071 3.59219 53.8296 3.75628 53.9937C3.92038 54.1578 4.14294 54.25 4.375 54.25H53.375C53.6071 54.25 53.8296 54.1578 53.9937 53.9937C54.1578 53.8296 54.25 53.6071 54.25 53.375V7.875C54.25 7.64294 54.1578 7.42038 53.9937 7.25628C53.8296 7.09219 53.6071 7 53.375 7ZM3.5 49V17.5H49V49H3.5ZM40.25 4.375C40.25 4.14294 40.3422 3.92038 40.5063 3.75628C40.6704 3.59219 40.8929 3.5 41.125 3.5C41.3571 3.5 41.5796 3.59219 41.7437 3.75628C41.9078 3.92038 42 4.14294 42 4.375V5.25H40.25V4.375ZM33.25 4.375C33.25 4.14294 33.3422 3.92038 33.5063 3.75628C33.6704 3.59219 33.8929 3.5 34.125 3.5C34.3571 3.5 34.5796 3.59219 34.7437 3.75628C34.9078 3.92038 35 4.14294 35 4.375V5.25H33.25V4.375ZM17.5 4.375C17.5 4.14294 17.5922 3.92038 17.7563 3.75628C17.9204 3.59219 18.1429 3.5 18.375 3.5C18.6071 3.5 18.8296 3.59219 18.9937 3.75628C19.1578 3.92038 19.25 4.14294 19.25 4.375V5.25H17.5V4.375ZM10.5 4.375C10.5 4.14294 10.5922 3.92038 10.7563 3.75628C10.9204 3.59219 11.1429 3.5 11.375 3.5C11.6071 3.5 11.8296 3.59219 11.9937 3.75628C12.1578 3.92038 12.25 4.14294 12.25 4.375V5.25H10.5V4.375ZM8.75 7V7.875C8.75081 8.57094 9.02763 9.23815 9.51974 9.73026C10.0118 10.2224 10.6791 10.4992 11.375 10.5C11.6071 10.5 11.8296 10.4078 11.9937 10.2437C12.1578 10.0796 12.25 9.85706 12.25 9.625C12.25 9.39294 12.1578 9.17038 11.9937 9.00628C11.8296 8.84219 11.6071 8.75 11.375 8.75C11.143 8.74974 10.9206 8.65747 10.7566 8.49343C10.5925 8.32939 10.5003 8.10698 10.5 7.875V7H15.75V7.875C15.7508 8.57094 16.0276 9.23815 16.5197 9.73026C17.0118 10.2224 17.6791 10.4992 18.375 10.5C18.6071 10.5 18.8296 10.4078 18.9937 10.2437C19.1578 10.0796 19.25 9.85706 19.25 9.625C19.25 9.39294 19.1578 9.17038 18.9937 9.00628C18.8296 8.84219 18.6071 8.75 18.375 8.75C18.143 8.74974 17.9206 8.65747 17.7566 8.49343C17.5925 8.32939 17.5003 8.10698 17.5 7.875V7H31.5V7.875C31.5008 8.57094 31.7776 9.23815 32.2697 9.73026C32.7618 10.2224 33.4291 10.4992 34.125 10.5C34.3571 10.5 34.5796 10.4078 34.7437 10.2437C34.9078 10.0796 35 9.85706 35 9.625C35 9.39294 34.9078 9.17038 34.7437 9.00628C34.5796 8.84219 34.3571 8.75 34.125 8.75C33.893 8.74974 33.6706 8.65747 33.5066 8.49343C33.3425 8.32939 33.2503 8.10698 33.25 7.875V7H38.5V7.875C38.5008 8.57094 38.7776 9.23815 39.2697 9.73026C39.7618 10.2224 40.4291 10.4992 41.125 10.5C41.3571 10.5 41.5796 10.4078 41.7437 10.2437C41.9078 10.0796 42 9.85706 42 9.625C42 9.39294 41.9078 9.17038 41.7437 9.00628C41.5796 8.84219 41.3571 8.75 41.125 8.75C40.893 8.74974 40.6706 8.65747 40.5066 8.49343C40.3425 8.32939 40.2503 8.10698 40.25 7.875V7H49V15.75H3.5V7H8.75ZM52.5 52.5H5.25V50.75H49.875C50.1071 50.75 50.3296 50.6578 50.4937 50.4937C50.6578 50.3296 50.75 50.1071 50.75 49.875V8.75H52.5V52.5Z" fill={state.color}/>
-					<path d="M28.875 42.875C29.1071 42.875 29.3296 42.7828 29.4937 42.6187C29.6578 42.4546 29.75 42.2321 29.75 42V24.5C29.7499 24.3392 29.7055 24.1815 29.6217 24.0443C29.5378 23.9071 29.4178 23.7956 29.2747 23.7222C29.1317 23.6487 28.9712 23.6161 28.8108 23.6279C28.6504 23.6397 28.4964 23.6955 28.3657 23.7891L21.3657 28.8004C21.2722 28.8673 21.1929 28.9519 21.1322 29.0495C21.0714 29.147 21.0305 29.2556 21.0118 29.369C20.993 29.4823 20.9967 29.5983 21.0228 29.7102C21.0488 29.8221 21.0966 29.9278 21.1635 30.0213C21.2304 30.1147 21.3151 30.194 21.4126 30.2548C21.5102 30.3155 21.6187 30.3564 21.7321 30.3752C21.8455 30.3939 21.9614 30.3902 22.0733 30.3641C22.1853 30.3381 22.2909 30.2903 22.3844 30.2234L28 26.2025V42C28 42.2321 28.0922 42.4546 28.2563 42.6187C28.4204 42.7828 28.6429 42.875 28.875 42.875Z" fill={state.color}/>
-				</svg>
+				<span>Day: { filmDay }</span>
 			</div>
-			<img 
-				src={"https://m.media-amazon.com/images/M/MV5BMzA5Zjc3ZTMtMmU5YS00YTMwLWI4MWUtYTU0YTVmNjVmODZhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL50_SY1000_SX675_AL_.jpg"} alt={"Image source"}
-				style={{
-					height: 334,
-					filter: 'drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25))',
-					borderRadius: '0px 18px 0px 0px'
-				}}
-			/>
 			<div
 				style={{
-					width: 240,
+					position: 'absolute',
+					// background: state.backgroundColor,
+					// color: state.color,
+					backgroundColor: '#e5a937',
+					color:'#fff',
+					borderTopRightRadius: 18,
+					fontSize: 14,
+					height: 'auto',
+					lineHeight: 'normal',
+					padding: '4px 6px',
+					zIndex: 10,
+					top: 0,
+					right: 0,
+				}}
+			>
+				<span>{ filmWatchDate }</span>
+			</div>
+			<div 
+				className="film-item-image"
+				style={{
+					height: 334,
+				}}
+			>
+				<img 
+					src={imageUrl} alt={filmName}
+					style={{
+						width: '100%',
+						height: '100%',
+						filter: 'drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25))',
+						borderRadius: '18px 18px 0px 0px'
+					}}
+				/>
+			</div>
+			<div
+				style={{
+					width: 'auto',
 					height: 66,
 					color: '#000',
 					background: '#FFFFFF',
@@ -56,29 +86,29 @@ export default function FilmItem({ imageURL, filmName, filmRating, filmYear, fil
 					justifyContent: 'center',
 					flexDirection: 'column',
 					alignItems: 'center',
+					padding: '14px 8px'
 				}}
 			>
-				<p>Straight Outta Compton</p>
-				<p>2014</p>
-				<Rating
-					stop={6}
-					emptySymbol={['fa fa-star-o fa-2x low', 'fa fa-star-o fa-2x low',
-						'fa fa-star-o fa-2x medium', 'fa fa-star-o fa-2x medium',
-						'fa fa-star-o fa-2x high', 'fa fa-star-o fa-2x high']}
-					fullSymbol={['fa fa-star fa-2x low', 'fa fa-star fa-2x low',
-						'fa fa-star fa-2x medium', 'fa fa-star fa-2x medium',
-						'fa fa-star fa-2x high', 'fa fa-star fa-2x high']}
+				<p>{ filmName }</p>
+				<p>{ filmYear }</p>
+				<StarRatings
+					rating={ filmRating }
+					starRatedColor="#FCD215"
+					numberOfStars={5}
+					starDimension="22px"
+					starSpacing="8px"
+					name='rating'
 				/>
 			</div>
 		</div>
 	)
 };
 
-// FilmItem.propTypes = {
-// 	imageURL: PropTypes.string.isRequired,
-// 	filmName: PropTypes.string.isRequired,
-// 	filmYear: PropTypes.number.isRequired,
-// 	filmRating: PropTypes.number.isRequired,
-// 	filmDay: PropTypes.number.isRequired,
-// 	filmWatchDate: PropTypes.string
-// }
+FilmItem.propTypes = {
+	imageUrl: PropTypes.string.isRequired,
+	filmName: PropTypes.string.isRequired,
+	filmYear: PropTypes.number.isRequired,
+	filmRating: PropTypes.number.isRequired,
+	filmDay: PropTypes.number.isRequired,
+	filmWatchDate: PropTypes.string
+}

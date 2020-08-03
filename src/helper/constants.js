@@ -14,5 +14,9 @@ export const customThemes = {
 	'Reverse Burn Out': {
 		color: "#FCD215",
 		backgroundColor: "#000"
+	},
+	'Red & Yellow': {
+		color: "red",
+		backgroundColor: "yellow"
 	}
 }

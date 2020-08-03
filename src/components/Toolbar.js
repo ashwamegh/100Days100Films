@@ -6,7 +6,7 @@ function Toolbar() {
 	return (
 		<div
 			style={{
-				padding: '120px 0px 80px 0px',
+				padding: '120px 0px 120px 0px',
 				display: 'flex',
 				flexDirection: 'row',
 				justifyContent: 'flex-end'

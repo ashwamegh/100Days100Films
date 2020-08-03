@@ -9,7 +9,8 @@ export default ({ children }) => {
             className="app-container"
             style={{
                 backgroundColor: state.backgroundColor,
-                color: state.color
+				color: state.color,
+				transition: '0.3s background-color ease-in, 0.3s color ease-out'
             }}
         >
             { children }
