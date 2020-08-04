@@ -16,10 +16,10 @@ body {
     box-sizing: border-box;
 }
 
-::selection {
+/* ::selection {
     color: red;
     background: yellow;
-}
+} */
 
 a,
 a:hover,
@@ -54,42 +54,4 @@ header {
 .header-links .accent-switcher {
 	margin-left: 22px;
 	cursor: pointer;
-}
-
-.title {
-    display: flex;
-    flex-direction: row;
-    font-size: 64px;
-    align-content: baseline;
-}
-
-.title .horizontal {
-	font-size: 114px;
-	font-weight: bold;
-}
-
-.title .vertical {
-    font-size: 36px;
-	width: 36px;
-	font-weight: bold;
-}
-
-/* Custom classes */
-.app-wrapper {
-    max-width: 80%;
-    margin: 0 auto;
-}
-
-.rotate-wrapper {
-    position: relative;
-}
-
-.rotate-inner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-}
-
-.rotate {
-    transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
 }

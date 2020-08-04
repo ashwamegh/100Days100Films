@@ -3,24 +3,20 @@ import React, { useContext, useState } from 'react';
 import { ThemeContext } from './../store';
 import { UPDATE_CURRENT_THEME } from './../store/types';
 import AccentSwitcher from './../components/AccentSwitcher';
+import Slogan from './Slogan';
 
 const Header = (props) => {
-	console.log(props);
 	const { dispatch } = useContext(ThemeContext);
 	const [ showAccentColors, toggleShowAccentColors ] = useState(false);
 
 	function changeTheme(color, backgroundColor) {
+		toggleShowAccentColors(false);
 		dispatch({ type: UPDATE_CURRENT_THEME, payload: { color, backgroundColor }});
 	}
 	
 	return (
 		<header>
-			<div className="title">
-				<div className="horizontal">100</div>
-				<div className="rotate-wrapper vertical"><span className="rotate-inner rotate">Days</span></div>
-				<div className="horizontal">100</div>
-				<div className="rotate-wrapper vertical"><span className="rotate-inner rotate">Films</span></div>
-			</div>
+			<Slogan />
 			<div className="header-links">
 				<div>
 				About
