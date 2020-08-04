@@ -1,6 +1,9 @@
+import { customThemes, randomNumber } from './../../helper/constants';
+const themesArray = Object.keys(customThemes);
+const randomTheme = customThemes[themesArray[randomNumber(0, themesArray.length - 1)]];
+
 const initialState = {
-	backgroundColor: "#FCD215",
-	color: "#000"
+	...randomTheme
 }
 
 export { initialState }
