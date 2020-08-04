@@ -9,7 +9,8 @@ function Toolbar() {
 				padding: '120px 0px 120px 0px',
 				display: 'flex',
 				flexDirection: 'row',
-				justifyContent: 'flex-end'
+				justifyContent: 'flex-end',
+				width: '100%'
 			}}
 		>
 			<div className="filter-button">
