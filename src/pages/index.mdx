@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
@@ -5,29 +6,46 @@ import Toolbar from '../components/Toolbar'
 import FilmItem from '../components/FilmItem'
 import Image from '../components/image'
 import SEO from '../components/seo'
+import PageLoader from '../components/PageLoader';
 
-import films from './../content/films.json'
+import films from '../content/films.json'
 
-<SEO title="Home" keywords={['gatsby', 'application', 'react']} />
-<Toolbar />
-<div
-	style={{
-		display: 'flex',
-		flexDirection: 'row',
-		flexWrap: 'wrap',
-		justifyContent: 'space-between'
-	}}
->
-	{ films.map((film, index) => 
-		<FilmItem 
-			key={index}
-			imageUrl={film.imageUrl}
-			filmName={film.filmName}
-			filmYear={film.filmYear}
-			filmRating={film.filmRating}
-			filmDay={film.filmDay}
-			filmWatchDate={film.filmWatchDate}
-			filmDescription={film.filmDescription}
-		/>)
-	}
-</div>
+export default function Index () {
+	const [loading, setLoading] = useState(true);
+	useEffect(() => {
+		setTimeout(() => {
+			setLoading(false);
+		}, 3000);
+	}, []);
+	return loading ?
+	(
+		<PageLoader />
+	) :
+	(
+		<Layout>
+			<SEO title="Home" keywords={['gatsby', 'application', 'react']} />
+			<Toolbar />
+			<div
+				style={{
+					display: 'flex',
+					flexDirection: 'row',
+					flexWrap: 'wrap',
+					justifyContent: 'space-between'
+				}}
+			>
+				{ films.map((film, index) => 
+					<FilmItem 
+						key={index}
+						imageUrl={film.imageUrl}
+						filmName={film.filmName}
+						filmYear={film.filmYear}
+						filmRating={film.filmRating}
+						filmDay={film.filmDay}
+						filmWatchDate={film.filmWatchDate}
+						filmDescription={film.filmDescription}
+					/>)
+				}
+			</div>
+		</Layout>
+	)
+}
