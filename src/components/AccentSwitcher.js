@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 
 import colorPickerLogo from './../images/color-picker.svg';
@@ -6,6 +6,28 @@ import { customThemes } from './../helper/constants';
 import './AccentSwitcher.css';
 
 function AccentSwitcher ({ themes, open, onToggle, onAccentChange }) {
+	const node = useRef();
+
+	const handleClickOutside = e => {
+		if (node.current.contains(e.target)) {
+			// inside click
+			return;
+		}
+		// outside click
+		onToggle();
+	};
+
+	useEffect(() => {
+		if (open) {
+			document.addEventListener("mousedown", handleClickOutside);
+		} else {
+			document.removeEventListener("mousedown", handleClickOutside);
+		}
+	
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
+	}, [open])
 	return (
 		<div
 			style={{
@@ -14,6 +36,7 @@ function AccentSwitcher ({ themes, open, onToggle, onAccentChange }) {
 				justifyContent: 'center'
 			}}
 			className="accent-switcher"
+			ref={node}
 		>
 			<img
 				src={colorPickerLogo}
