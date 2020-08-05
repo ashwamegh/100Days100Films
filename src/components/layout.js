@@ -17,7 +17,8 @@ const Layout = ({ children }) => {
 
 		div,
 		p,
-		span {
+		span,
+		label {
 			&::selection {
 				background: ${state.color};
 				color: ${state.backgroundColor};

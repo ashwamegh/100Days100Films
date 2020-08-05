@@ -12,6 +12,9 @@ function Toolbar() {
 			background-color: ${state.backgroundColor};
 			border-color: ${state.color};
 		}
+		&:checked:before {
+			background-color: ${state.color};
+		}
 	`
 	return (
 		<div

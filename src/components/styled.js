@@ -216,7 +216,9 @@ export const RadioInput = styled.input.attrs(props => ({ type: "radio" }))`
 	margin-right: 10px;
 	margin-bottom: 2px;
 	cursor: pointer;
-
+	position: relative;
+	transition: background-color 0.3s ease-in,
+				border-color 0.3s ease-in;
 	&:after {
 		width: 14px;
 		height: 14px;
@@ -230,6 +232,25 @@ export const RadioInput = styled.input.attrs(props => ({ type: "radio" }))`
 		visibility: visible;
 		border: 3px solid white;
 		margin-right: 8px;
+		transition: background-color 0.3s ease-in,
+					border-color 0.3s ease-in;
+	}
+
+	&:before {
+		width: 10px;
+		height: 10px;
+		border-radius: 15px;
+		top: 3px;
+		left: 4px;
+		background-color: #d1d3d1;
+		content: '';
+		display: inline-block;
+		visibility: visible;
+		margin-right: 8px;
+		position: absolute;
+		z-index: 10;
+		transition: background-color 0.3s ease-in,
+					border-color 0.3s ease-in;
 	}
 
 	&:checked:after {
