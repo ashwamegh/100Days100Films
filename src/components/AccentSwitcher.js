@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import colorPickerLogo from './../images/color-picker.svg';
 import { customThemes } from './../helper/constants';
 import './AccentSwitcher.css';
+import { PopoverArrowUp } from './styled'
 
 function AccentSwitcher ({ themes, open, onToggle, onAccentChange }) {
 	const node = useRef();
@@ -51,7 +52,7 @@ function AccentSwitcher ({ themes, open, onToggle, onAccentChange }) {
 						style={{
 							display: 'flex',
 							position: 'absolute',
-							top: 48,
+							top: 51,
 							flexDirection: 'column',
 							background: '#cfd8db',
 							padding: 4,
@@ -61,6 +62,7 @@ function AccentSwitcher ({ themes, open, onToggle, onAccentChange }) {
 							boxShadow: '0 0px 12px 1px rgba(0,0,0,0.1)'
 						}}
 					>
+						<PopoverArrowUp />
 						{
 							Object.keys(themes).map((theme, index) => {
 								const primaryAccentColor = themes[theme].backgroundColor;

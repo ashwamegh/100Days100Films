@@ -176,3 +176,24 @@ export const BoxWithTextWrapper = styled.div`
 		}
 	}
 `
+
+export const PopoverArrowUp = styled.div`
+	margin: 0 auto;
+	border-top: 0 solid #cfd8db;
+	border-left: 0 solid #F5D97B;
+	border-bottom: 0 solid #cfd8db;
+	border-right: 0 solid #8DB434;
+	transition: 0.8s 0.2s;
+	border-top-color: transparent;
+	border-right-color: transparent;
+	border-left-color: transparent;
+	width: 0;
+	height: 0;
+	background: transparent;
+	border-bottom-width: 10px;
+	border-right-width: 10px;
+	border-left-width: 10px;
+	border-top-width: 10px;
+	position: absolute;
+	top: -20px;
+`
