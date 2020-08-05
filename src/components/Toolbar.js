@@ -28,7 +28,7 @@ function Toolbar() {
 			}}
 		>
 			<RadioInputWrapper>
-				<RadioInputExtended name="sortingOrder" id="sortByAsc" value="sortByAsc" checked />
+				<RadioInputExtended name="sortingOrder" id="sortByAsc" value="sortByAsc"/>
 				<label className="form-check-label" htmlFor="sortingOrder">
 					Order By Asc
 				</label>
@@ -40,7 +40,9 @@ function Toolbar() {
 					Order By Desc
 				</label>
 			</RadioInputWrapper>
-			<FilterSettings />
+			<FilterSettings
+				onFilterSelect={() => console.log("sjndskjn")}
+			/>
 		</div>
 	);
 }
