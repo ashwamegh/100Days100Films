@@ -197,3 +197,53 @@ export const PopoverArrowUp = styled.div`
 	position: absolute;
 	top: -20px;
 `
+
+export const RadioInputWrapper = styled.div`
+	cursor: pointer;
+	padding: 0 8px;
+	font-size: 14px;
+	display: flex;
+    align-items: center;
+    align-content: center;
+	justify-content: center;
+	font-family: 'Poppins', sans-serif;
+`
+
+export const RadioInput = styled.input.attrs(props => ({ type: "radio" }))`
+	height: 14px;
+	width: 14px;
+	margin: 0;
+	margin-right: 10px;
+	margin-bottom: 2px;
+	cursor: pointer;
+
+	&:after {
+		width: 14px;
+		height: 14px;
+		border-radius: 15px;
+		top: -2px;
+		left: -1px;
+		position: relative;
+		background-color: #d1d3d1;
+		content: '';
+		display: inline-block;
+		visibility: visible;
+		border: 3px solid white;
+		margin-right: 8px;
+	}
+
+	&:checked:after {
+		width: 14px;
+		height: 14px;
+		border-radius: 15px;
+		top: -2px;
+		left: -1px;
+		position: relative;
+		background-color: #ffa500;
+		content: '';
+		display: inline-block;
+		visibility: visible;
+		border: 3px solid white;
+		margin-right: 8px;
+	}
+`
