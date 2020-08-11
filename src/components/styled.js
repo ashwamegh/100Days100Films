@@ -268,3 +268,32 @@ export const RadioInput = styled.input.attrs(props => ({ type: "radio" }))`
 		margin-right: 8px;
 	}
 `
+
+/* Film Info */
+export const FullPageBackdrop = styled.div`
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 0;
+`
+
+export const FullPageBackdropImageContainer = styled.div`
+	color: transparent;
+	display: inline-block;
+	width: 100%;
+	height: calc(100% + 8px);
+	position: absolute;
+	left: 0;
+	top: 0;
+	transition: opacity .5s ease-in-out;
+`
+
+export const FullPageBackdropImage = styled.img`
+	object-fit: cover;
+	height: 100vh;
+	width: 100vw;
+	-webkit-filter: brightness(.2);
+	filter: brightness(.2);
+`
