@@ -1,5 +1,17 @@
 import styled from 'styled-components';
 
+
+/* Common */
+export const RowFlex = styled.div`
+	display: flex;
+	flex-flow: row;
+`
+
+export const ColumnFlex = styled.div`
+	display: flex;
+	flex-flow: column;
+`
+
 export const Rotate90Deg = styled.span`
 	position: absolute;
 	top: 50%;
@@ -45,9 +57,11 @@ export const FilmItemContainer = styled.div`
 	margin: 0.6%;
 	margin-bottom: 50px;
 	cursor: pointer;
+	transition: box-shadow .4s ease-in-out,transform .3s ease-in-out;
 
 	&:hover {
 		box-shadow: 8px 8px 20px 8px rgba(0, 0, 0, 0.25);
+		transform: translateY(-4px);
 	}
 `
 
@@ -103,7 +117,7 @@ export const FilmDetailsWrapper = styled.div`
 `
 
 export const FilmDescription = styled.div`
-	font-family: 'Poppins',inherit, sans-serif;
+	font-family: 'Poppins', sans-serif;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 14px;
