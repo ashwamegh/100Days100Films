@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 import StarRatings from 'react-star-ratings';
 import { ThemeContext } from '../store';
 import { FilmDescription, FilmDetailsWrapper, FilmImage, FilmItemContainer, FilItemImageWrapper, DayBadge, DateBadge } from './styled';
@@ -8,45 +9,49 @@ export default function FilmItem({ imageUrl, filmName, filmRating, filmYear, fil
 	const { state } = useContext(ThemeContext);
 
 	return (
-		<FilmItemContainer>
-				<DayBadge>
-					<span>Day: { filmDay }</span>
-				</DayBadge>
-				<DateBadge>
-					<span>{ filmWatchDate }</span>
-				</DateBadge>
-			
-			<FilItemImageWrapper
-				style={{
-					backgroundColor: state.backgroundColor
-				}}
-			>
-				<FilmDescription
-					className="film-description"
+		<Link
+			to={"/page-2"}
+		>
+			<FilmItemContainer>
+					<DayBadge>
+						<span>Day: { filmDay }</span>
+					</DayBadge>
+					<DateBadge>
+						<span>{ filmWatchDate }</span>
+					</DateBadge>
+				
+				<FilItemImageWrapper
 					style={{
-						color: state.color,
-						borderColor: state.color,
 						backgroundColor: state.backgroundColor
 					}}
 				>
-					{ filmDescription }
-				</FilmDescription>
-				<FilmImage src={imageUrl} alt={filmName} />
-			</FilItemImageWrapper>
+					<FilmDescription
+						className="film-description"
+						style={{
+							color: state.color,
+							borderColor: state.color,
+							backgroundColor: state.backgroundColor
+						}}
+					>
+						{ filmDescription }
+					</FilmDescription>
+					<FilmImage src={imageUrl} alt={filmName} />
+				</FilItemImageWrapper>
 
-			<FilmDetailsWrapper>
-				<p>{ filmName }</p>
-				<p>{ filmYear }</p>
-				<StarRatings
-					rating={ filmRating }
-					starRatedColor="#FCD215"
-					numberOfStars={5}
-					starDimension="22px"
-					starSpacing="8px"
-					name='rating'
-				/>
-			</FilmDetailsWrapper>
-		</FilmItemContainer>
+				<FilmDetailsWrapper>
+					<p>{ filmName }</p>
+					<p>{ filmYear }</p>
+					<StarRatings
+						rating={ filmRating }
+						starRatedColor="#FCD215"
+						numberOfStars={5}
+						starDimension="22px"
+						starSpacing="8px"
+						name='rating'
+					/>
+				</FilmDetailsWrapper>
+			</FilmItemContainer>
+		</Link>
 	)
 };
 
