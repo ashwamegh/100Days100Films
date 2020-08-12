@@ -13,6 +13,7 @@ const Layout = ({ children }) => {
 
 	const AppWrapper = styled.div`
 		max-width: 80%;
+		min-height: 100%;
 		margin: 0 auto;
 
 		div,
