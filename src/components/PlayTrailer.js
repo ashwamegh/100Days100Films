@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'gatsby'
+import ReactPlayer from 'react-player';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import backButtonIcon from './../assets/back-button.svg';
 import YoutubeButtonIcon from './../assets/youtube-button.svg';
@@ -114,15 +115,19 @@ const YoutubeTitle = styled.h4`
 	}
 `
 
-function PlayTrailer () {
+function PlayTrailer ({ url, onBackButtonClick }) {
 	return (
 		<VideoPopup>
 			<VideoHeader>
 				<BackButtonWrapper>
-					<BackButton src={backButtonIcon} alt="Go back"/>
+					<BackButton 
+						src={backButtonIcon} 
+						alt="Go back"
+						onClick={onBackButtonClick}
+					/>
 				</BackButtonWrapper>
 				<YoutubeButton
-					href={`https://www.youtube.com/watch?v=xCke0hXoCf8`}
+					href={url}
 					target="_blank"
 					rel="noopener noreferrer"
 				>
@@ -130,8 +135,29 @@ function PlayTrailer () {
 				</YoutubeButton>
 				<YoutubeTitle>Little America — Official Trailer | Apple TV+</YoutubeTitle>
 			</VideoHeader>
+			<div
+				style={{
+					height: '100%',
+					width: '100%',
+				}}
+			>
+				<ReactPlayer
+					url={url}
+					className="react-player"
+					playing={true}
+					controls={true}
+					playsinline={true}
+					height="100%"
+					width="100%"
+				/>
+			</div>
 		</VideoPopup>
 	)
+}
+
+PlayTrailer.propTypes = {
+	url: PropTypes.string.isRequired,
+	onBackButtonClick: PropTypes.func
 }
 
 export default PlayTrailer;
