@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
@@ -192,9 +192,16 @@ const CTAButton = styled.button`
 `
 
 function FilmInfo({ filmNo }) {
+	const [shouldPlayTrailer, setPlaytrailerStatus] = useState(false);
+
 	return(
 		<FilmDetailsContainer>
-			<PlayTrailer/>
+			{shouldPlayTrailer &&
+				(<PlayTrailer
+					url={"https://www.youtube.com/watch?v=xCke0hXoCf8"}
+					onBackButtonClick={() => setPlaytrailerStatus(false)}
+				/>)
+			}
 			<Link to="/">
 				<CloseButton
 					src={closeButtonIcon}
@@ -249,7 +256,9 @@ function FilmInfo({ filmNo }) {
 								<span>EN</span>
 							</FilmCaptions>
 							<FilmCTAButtonsWrapper>
-								<CTAButton>
+								<CTAButton
+									onClick={() => setPlaytrailerStatus(true)}
+								>
 									<img src={playButtonIcon} alt="Play Button"/>
 									Trailer
 								</CTAButton>
