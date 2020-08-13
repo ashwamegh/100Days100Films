@@ -3,10 +3,13 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { usePalette } from 'react-palette'
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 import { 
 	FullPageBackdrop,
 	FullPageBackdropImageContainer,
 	FullPageBackdropDiv,
+	FullPageBackdropImage,
 	RowFlex,
 	ColumnFlex
 } from './../components/styled'
@@ -169,12 +172,13 @@ const FilmBadges = styled.ul`
 	background: rgba(74,71,71,.45);
 	padding: 6px 10px;
 	border-radius: 7px;
-	border: 1px solid #333;
+	box-shadow: 0px 0px 2px 0px #333;
 	display: flex;
 	list-style-type: none;
 	align-content: center;
 	justify-content: space-between;
 	backdrop-filter: blur(4px);
+	color: #dfdfdf !important;
 
 	li {
 		display: flex;
@@ -182,15 +186,29 @@ const FilmBadges = styled.ul`
 		align-items: center;
 	}
 `
+const FilmBadgesCaption = styled.span`
+	padding-right: 11px;
+	font-size: 14px;
+	text-transform: uppercase;
+`
+
+const RatingBadge = styled.div`
+	height: 36px;
+	width: 36px;
+
+	text {
+		font-weight: 400;
+	}
+`
 const FilmCaptions = styled(RowFlex)`
 	margin: 16px 0;
-	span {
+	li {
 		display: inline-block;
 		margin: 0 5px;
 		padding: 4px 7px;
 		border-radius: 2px;
 		border: 1px solid #aeaeae;
-		font-size: 10px;
+		font-size: 12px;
 		text-transform: uppercase;
 		color: #dfdfdf !important;
 	}
@@ -241,6 +259,7 @@ function FilmInfo({ filmNo }) {
 	const [shouldPlayTrailer, setPlaytrailerStatus] = useState(false);
 	const { data: palette, loading } = usePalette("https://image.tmdb.org/t/p/original/wO5QSWZPBT71gMLvrRex0bVc0V9.jpg");
 	const { state } = useContext(ThemeContext);
+	const rating = 6.6;
 
 	return (
 		<FilmDetailsContainer>
@@ -257,18 +276,24 @@ function FilmInfo({ filmNo }) {
 				/>
 			</Link>
 			<FullPageBackdrop>
-				<FullPageBackdropImageContainer>
-					{
+				<FullPageBackdropImageContainer
+					style={{
+						backgroundColor: palette.vibrant || 'black',
+						backgroundImage: `linear-gradient(${palette.vibrant || 'rgb(10, 5, 7)'}, rgb(10, 5, 7) 85%)`
+					}}
+				>
+					<FullPageBackdropImage style={{ opacity: '0.5' }} src={"https://res.cloudinary.com/ashwamegh/image/upload/v1596470973/100Days100Films/One_Flew_Over_the_Cuckoo_s_Nest_1976_1280_x_1829_joyvfs.jpg"}/>
+					{/* {
 						palette && !loading &&
 						(
 							<FullPageBackdropDiv
 								style={{
-									backgroundColor: palette['vibrant'] || 'black',
-									backgroundImage: `linear-gradient(${palette['vibrant'] || 'rgb(10, 5, 7)'}, rgb(10, 5, 7) 85%)`
+									backgroundColor: palette.darkVibrant || 'black',
+									backgroundImage: `linear-gradient(${palette.darkVibrant || 'rgb(10, 5, 7)'}, rgb(10, 5, 7) 85%)`
 								}}
 							/>
 						)
-					}
+					} */}
 				</FullPageBackdropImageContainer>
 			</FullPageBackdrop>
 			<CenteredRowFlex>
@@ -276,7 +301,7 @@ function FilmInfo({ filmNo }) {
 					<FilmPosterWrapper>
 						<FilmPosterBackground>
 							<img 
-								src="https://image.tmdb.org/t/p/original/mb7wQv0adK3kjOUr9n93mANHhPJ.jpg"
+								src="https://res.cloudinary.com/ashwamegh/image/upload/v1596470973/100Days100Films/One_Flew_Over_the_Cuckoo_s_Nest_1976_1280_x_1829_joyvfs.jpg"
 								alt="backdrop"
 							/>
 						</FilmPosterBackground>
@@ -285,17 +310,28 @@ function FilmInfo({ filmNo }) {
 						<FilmTitleAndBadge>
 							<h1>The Kissing Booth 2 (2020)</h1>
 							<h4></h4>
-							{/* <FilmBadges>
+							<FilmBadges>
 								<li>
-									<span className="caption">TMDB:</span>
+									<FilmBadgesCaption>IMDB:</FilmBadgesCaption>
+									<RatingBadge>
+										<CircularProgressbar
+											value={rating * 10}
+											text={rating}
+											strokeWidth={15}
+											styles={buildStyles({
+												textSize: '32px',
+												textColor: palette.lightMuted,
+												pathColor: palette.vibrant
+											})}
+										/>
+									</RatingBadge>
 								</li>
 								<li>
-									<div className="captions">
+									<FilmCaptions>
 										<ul>
-											<li className="cap cap--drama">Drama</li>
-											<li className="cap cap--comedy">Comedy</li>
+											{["Drama", "Comedy"].map((genre, key) => <li key={key}>{ genre }</li>)}
 										</ul>
-									</div>
+									</FilmCaptions>
 								</li>
 								<li>
 									<a
@@ -305,7 +341,7 @@ function FilmInfo({ filmNo }) {
 										rel="noopener noreferrer"
 									><i className="fal fa-home"></i></a>
 								</li>
-							</FilmBadges> */}
+							</FilmBadges>
 
 							<p>
 								An anthology series that goes beyond the headlines to look at the funny, romantic, heartfelt, inspiring and surprising stories of immigrants in America at a time when they are more relevant than ever.
