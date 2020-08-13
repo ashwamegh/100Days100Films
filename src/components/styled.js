@@ -104,7 +104,7 @@ export const FilmImage = styled.img`
 
 export const FilmDetailsWrapper = styled.div`
 	width: auto;
-	height: 84px;
+	height: 114px;
 	color: #000;
 	background: #FFFFFF;
 	border-radius: 0px 0px 18px 18px;
