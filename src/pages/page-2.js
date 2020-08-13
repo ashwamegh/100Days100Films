@@ -202,7 +202,7 @@ const RatingBadge = styled.div`
 `
 const FilmCaptions = styled(RowFlex)`
 	margin: 16px 0;
-	li {
+	li, span {
 		display: inline-block;
 		margin: 0 5px;
 		padding: 4px 7px;
