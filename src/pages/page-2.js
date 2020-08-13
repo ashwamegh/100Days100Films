@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import { usePalette } from 'react-palette'
 import { 
 	FullPageBackdrop,
 	FullPageBackdropImageContainer,
-	FullPageBackdropImage,
+	FullPageBackdropDiv,
 	RowFlex,
 	ColumnFlex
 } from './../components/styled'
 import closeButtonIcon from './../assets/close-button.svg';
 import playButtonIcon from './../assets/play-button.svg';
-
 import PlayTrailer from './../components/PlayTrailer';
 
 const FilmDetailsContainer = styled.div`
@@ -26,7 +26,7 @@ const FilmDetailsContainer = styled.div`
 	position: relative;
 	z-index: 1;
 	font-family: 'Poppins', sans-serif;
-	overflow-y: hidden;
+	overflow-x: hidden;
 `
 
 const CloseButton = styled.img`
@@ -49,6 +49,18 @@ const CenteredRowFlex = styled(RowFlex)`
 	display: grid;
 	grid-template-columns: 80% 20%;
 	padding: 0 5vw;
+
+	@media (max-width: 992px) {
+		grid-template-columns: 90% 10%;
+	}
+
+	@media (max-width: 767px) {
+		grid-template-columns: 100%;
+	}
+
+	@media (max-width: 640px) {
+		padding-top: 80px;
+	}
 `
 
 const FilmDetails = styled(RowFlex)`
@@ -62,6 +74,10 @@ const FilmDetails = styled(RowFlex)`
 	margin: auto;
 	justify-content: center;
 	// padding-top: 50px;
+
+	@media (max-width: 638px) {
+		flex-flow: column wrap;
+	}
 `
 
 const FilmPosterWrapper = styled(ColumnFlex)`
@@ -71,6 +87,10 @@ const FilmPosterWrapper = styled(ColumnFlex)`
 	z-index: 1;
 	justify-content: flex-end;
 	flex-basis: 300px;
+
+	@media (max-width: 638px) {
+		flex: 1;
+	}
 `
 
 const FilmPosterBackground = styled.span`
@@ -90,6 +110,14 @@ const FilmPosterBackground = styled.span`
 	img {
 		max-width: 100%;
 		border-radius: 5px;
+
+		@media (max-width: 638px) {
+			width: 300px;
+		}
+	}
+
+	@media (max-width: 638px) {
+		position: static;
 	}
 `
 
@@ -104,10 +132,18 @@ const FilmOverviewWrapper = styled(ColumnFlex)`
 	animation-delay: .6s;
 
 	p {
-		color: #d5d5d5;
+		color: #d5d5d5 !important;
 		font-size: 16px;
 		line-height: 24px;
 		margin-bottom: 25px;
+	}
+
+	@media (max-width: 638px) {
+		flex: 1;
+	}
+
+	@media (max-width: 638px) {
+		padding-left: 15px;
 	}
 `
 
@@ -117,6 +153,7 @@ const FilmTitleAndBadge = styled.div`
 	position: relative;
 
 	h1 {
+		color: #fff !important;
 		font-size: 2em;
 		margin: .67em 0;
 	}
@@ -149,7 +186,7 @@ const FilmCaptions = styled(RowFlex)`
 		border: 1px solid #aeaeae;
 		font-size: 10px;
 		text-transform: uppercase;
-		color: #dfdfdf;
+		color: #dfdfdf !important;
 	}
 `
 
@@ -175,7 +212,7 @@ const CTAButton = styled.button`
 	font-weight: 400;
 	letter-spacing: 2px;
 	background-color: rgba(248,22,41,.73);
-	color: #fff;
+	color: #fff !important;
 	transition: background .3s ease-in-out;
 	display: flex;
 	align-items: center;
@@ -193,8 +230,9 @@ const CTAButton = styled.button`
 
 function FilmInfo({ filmNo }) {
 	const [shouldPlayTrailer, setPlaytrailerStatus] = useState(false);
+	const { data: palette, loading, error } = usePalette("https://image.tmdb.org/t/p/original/wO5QSWZPBT71gMLvrRex0bVc0V9.jpg");
 
-	return(
+	return (
 		<FilmDetailsContainer>
 			{shouldPlayTrailer &&
 				(<PlayTrailer
@@ -210,7 +248,17 @@ function FilmInfo({ filmNo }) {
 			</Link>
 			<FullPageBackdrop>
 				<FullPageBackdropImageContainer>
-					<FullPageBackdropImage src="https://image.tmdb.org/t/p/original/wO5QSWZPBT71gMLvrRex0bVc0V9.jpg"></FullPageBackdropImage>
+					{
+						palette && !loading &&
+						(
+							<FullPageBackdropDiv
+								style={{
+									backgroundColor: palette['vibrant'] || 'black',
+									backgroundImage: `linear-gradient(${palette['vibrant'] || 'rgb(10, 5, 7)'}, rgb(10, 5, 7) 85%)`
+								}}
+							/>
+						)
+					}
 				</FullPageBackdropImageContainer>
 			</FullPageBackdrop>
 			<CenteredRowFlex>
