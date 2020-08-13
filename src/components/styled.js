@@ -125,7 +125,6 @@ export const FilmDescription = styled.div`
 	display: flex;
 	align-items: baseline;
 	font-feature-settings: 'pnum' on, 'lnum' on;
-	border: 3px solid;
 	height: 100%;
 	box-sizing: border-box;
 	border-radius: 18px 18px 0px 0px;

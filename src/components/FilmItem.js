@@ -29,8 +29,8 @@ export default function FilmItem({ imageUrl, filmName, filmRating, filmYear, fil
 						className="film-description"
 						style={{
 							color: state.color,
-							borderColor: state.color,
-							backgroundColor: state.backgroundColor
+							backgroundColor: state.backgroundColor,
+							boxShadow: `0px 0px 6px 0px ${state.color}`
 						}}
 					>
 						{ filmDescription }
