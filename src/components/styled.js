@@ -308,6 +308,27 @@ export const FullPageBackdropImage = styled.img`
 	object-fit: cover;
 	height: 100vh;
 	width: 100vw;
-	-webkit-filter: brightness(.2);
 	filter: brightness(.2);
+`
+
+export const FullPageBackdropDiv = styled.div`
+	object-fit: cover;
+	height: 100vh;
+	width: 100vw;
+
+	@media (max-width: 414px) {
+		min-height: 130%;
+	}
+
+	${'' /* @media (max-width: 412px) {
+		min-height: 1%;
+	} */}
+
+	${'' /* @media (max-width: 375px) {
+		min-height: 150%;
+	} */}
+
+	@media (max-width: 360px) {
+		min-height: 170%;
+	}
 `
