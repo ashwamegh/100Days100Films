@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
@@ -11,8 +11,10 @@ import {
 	ColumnFlex
 } from './../components/styled'
 import closeButtonIcon from './../assets/close-button.svg';
-import playButtonIcon from './../assets/play-button.svg';
+import PlayButton from './../assets/PlayButton';
 import PlayTrailer from './../components/PlayTrailer';
+
+import { ThemeContext } from './../store';
 
 const FilmDetailsContainer = styled.div`
 	width: 100%;
@@ -27,6 +29,10 @@ const FilmDetailsContainer = styled.div`
 	z-index: 1;
 	font-family: 'Poppins', sans-serif;
 	overflow-x: hidden;
+
+	@media (min-width: 638px) {
+		overflow-y: hidden;
+	}
 `
 
 const CloseButton = styled.img`
@@ -212,12 +218,14 @@ const CTAButton = styled.button`
 	font-weight: 400;
 	letter-spacing: 2px;
 	background-color: rgba(248,22,41,.73);
+	filter: brightness(.8);
 	color: #fff !important;
-	transition: background .3s ease-in-out;
+	transition: background .3s ease-in-out,
+				filter .3s ease-in-out;
 	display: flex;
 	align-items: center;
 
-	img {
+	svg {
 		height: 18px;
 		width: 18px;
 		margin-right: 14px;
@@ -225,12 +233,14 @@ const CTAButton = styled.button`
 
 	&:hover {
 		background-color: #f81629;
+		filter: brightness(1);
 	}
 `
 
 function FilmInfo({ filmNo }) {
 	const [shouldPlayTrailer, setPlaytrailerStatus] = useState(false);
-	const { data: palette, loading, error } = usePalette("https://image.tmdb.org/t/p/original/wO5QSWZPBT71gMLvrRex0bVc0V9.jpg");
+	const { data: palette, loading } = usePalette("https://image.tmdb.org/t/p/original/wO5QSWZPBT71gMLvrRex0bVc0V9.jpg");
+	const { state } = useContext(ThemeContext);
 
 	return (
 		<FilmDetailsContainer>
@@ -306,9 +316,14 @@ function FilmInfo({ filmNo }) {
 							<FilmCTAButtonsWrapper>
 								<CTAButton
 									onClick={() => setPlaytrailerStatus(true)}
+									style={{
+										backgroundColor: state.color
+									}}
 								>
-									<img src={playButtonIcon} alt="Play Button"/>
-									Trailer
+									<PlayButton fill={state.backgroundColor} />
+									<span style={{ color: state.backgroundColor }}>
+										Trailer
+									</span>
 								</CTAButton>
 							</FilmCTAButtonsWrapper>
 						</FilmTitleAndBadge>
