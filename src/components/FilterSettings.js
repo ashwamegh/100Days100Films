@@ -9,6 +9,11 @@ import { PopoverArrowUp } from './styled'
 
 // Toolbar
 
+const PopoverArrowUpExtended = styled(PopoverArrowUp)`
+	@media (max-width: 667px) {
+		display: none;
+	}
+`
 const SvgContainer = styled.div`
 	cursor: pointer;
 	box-shadow: 0 0px 12px 1px rgba(0,0,0,0.1);
@@ -25,6 +30,14 @@ const FilterSettingsContainer = styled.div`
 	box-shadow: 0 0px 12px 1px rgba(0,0,0,0.1);
 	z-index: 13;
 	min-width: 180px;
+
+	@media (max-width: 667px) {
+		right: -42px;
+	}
+
+	@media (max-width: 620px) {
+		right: 0;
+	}
 `
 
 const FilterSettingsOption = styled.div`
@@ -89,7 +102,7 @@ function FilterSettings ({ onFilterSelect }) {
 			{open && 
 				(
 					<FilterSettingsContainer style={{ backgroundColor: state.color || '#cfd8db' }}>
-						<PopoverArrowUp
+						<PopoverArrowUpExtended
 							style={{
 								borderBottomColor: state.color || '#cfd8db'
 							}}

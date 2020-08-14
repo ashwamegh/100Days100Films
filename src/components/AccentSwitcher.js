@@ -59,7 +59,8 @@ function AccentSwitcher ({ themes, open, onToggle, onAccentChange }) {
 							borderRadius: 4,
 							alignItems: 'center',
 							justifyContent: 'center',
-							boxShadow: '0 0px 12px 1px rgba(0,0,0,0.1)'
+							boxShadow: '0 0px 12px 1px rgba(0,0,0,0.1)',
+							zIndex: 10
 						}}
 					>
 						<PopoverArrowUp />
