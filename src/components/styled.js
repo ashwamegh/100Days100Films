@@ -41,6 +41,33 @@ export const HorizontalText = styled.div`
 	font-size: 114px;
 	font-weight: bold;
 	margin: 8px;
+
+	@media (max-width: 992px) {
+		font-size: 100px;
+	}
+
+	@media (max-width: 792px) {
+		font-size: 80px;
+		margin: 4px;
+	}
+
+	@media (max-width: 767px) {
+		font-size: 70px;
+		margin: 0px;
+	}
+
+	@media (max-width: 667px) {
+		font-size: 60px;
+	}
+
+	@media (max-width: 621px) {
+		font-size: 48px;
+	}
+
+	@media (max-width: 350px) {
+		font-size: 42px;
+		margin-left: -21px;
+	}
 `
 
 export const VerticalText = styled.div`
@@ -48,9 +75,126 @@ export const VerticalText = styled.div`
 	width: 36px;
 	font-weight: bold;
 	position: relative;
+
+	@media (max-width: 992px) {
+		font-size: 33px;
+	}
+
+	@media (max-width: 792px) {
+		font-size: 27px;
+	}
+
+	@media (max-width: 767px) {
+		font-size: 23px;
+		margin: 4px;
+	}
+	
+	@media (max-width: 667px) {
+		font-size: 20px;
+	}
+
+	@media (max-width: 621px) {
+		font-size: 16px;
+	}
+
+	@media (max-width: 350px) {
+		font-size: 12px;
+
+		span {
+			margin-left: -11px;
+		}
+	}
+`
+
+/* Header */
+
+export const HeaderWrapper = styled.header`
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: baseline;
+	padding: 40px 0px;
+
+	@media (max-width: 767px) {
+		padding: 20px 0px;
+	}
+`
+
+export const HeaderLinks = styled.div`
+	display: flex;
+	flex-direction: row;
+	font-size: 36px;
+	font-weight: bold;
+	align-items: flex-end;
+
+	.accent-switcher {
+		margin-left: 22px;
+		cursor: pointer;
+
+		@media (max-width: 667px) {
+			margin-left: 18px;
+		}
+
+		@media (max-width: 621px) {
+			margin-left: 14px;
+		}
+	}
+
+	@media (max-width: 667px) {
+		font-size: 30px;
+	}
+
+	@media (max-width: 621px) {
+		font-size: 24px;
+		align-self: baseline;
+	}
+
+	@media (max-width: 448px) {
+
+		.about {
+			display: none;
+		}
+	}
+`
+
+export const AccentSwitcherImage = styled.img`
+	@media (max-width: 667px) {
+		height: 32px;
+		width: 32px;
+	}
+`
+
+/* Toolbar */
+
+export const ToolbarWrapper = styled.div`
+	padding: 120px 0px 120px 0px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	width: 100%;
+	align-items: center;
+
+	@media (max-width: 767px) {
+		padding: 80px 0px 80px 0px;
+	}
+
+	@media (max-width: 512px) {
+		padding: 40px 0px 80px 0px;
+	}
 `
 
 // Film Item Components
+
+export const FilmsWrapper = styled.div`
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+
+	@media (max-width: 512px) {
+		flex-flow: row nowrap;
+		overflow-x: scroll;
+	}
+`
 
 export const FilmItemContainer = styled.div`
 	@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
@@ -64,12 +208,17 @@ export const FilmItemContainer = styled.div`
 	font-family: 'Poppins'; sans-serif;
 	margin: 0.6%;
 	margin-bottom: 50px;
+	margin-right: 8px;
 	cursor: pointer;
 	transition: box-shadow .4s ease-in-out,transform .3s ease-in-out;
 
 	&:hover {
 		box-shadow: 8px 8px 20px 8px rgba(0, 0, 0, 0.25);
 		transform: translateY(-4px);
+	}
+
+	@media (max-width: 512px) {
+		margin-right: 18px;
 	}
 `
 

@@ -38,28 +38,6 @@ p {
     margin: 0;
 }
 
-/* Header */
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-	align-items: baseline;
-	padding: 40px 0px;
-}
-
-.header-links {
-    display: flex;
-    flex-direction: row;
-	font-size: 36px;
-	font-weight: bold;
-	align-items: flex-end;
-}
-
-.header-links .accent-switcher {
-	margin-left: 22px;
-	cursor: pointer;
-}
-
 /* PLAY TRAILER */
 
 .react-player {

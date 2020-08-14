@@ -4,6 +4,7 @@ import { ThemeContext } from './../store';
 import { UPDATE_CURRENT_THEME } from './../store/types';
 import AccentSwitcher from './../components/AccentSwitcher';
 import Slogan from './Slogan';
+import { HeaderWrapper, HeaderLinks } from './styled'
 
 const Header = (props) => {
 	const { dispatch } = useContext(ThemeContext);
@@ -15,19 +16,19 @@ const Header = (props) => {
 	}
 	
 	return (
-		<header>
+		<HeaderWrapper>
 			<Slogan />
-			<div className="header-links">
-				<div>
-				About
+			<HeaderLinks className="header-links">
+				<div className="about">
+					About
 				</div>
 				<AccentSwitcher
 					open={showAccentColors}
 					onToggle={() => toggleShowAccentColors(!showAccentColors)}
 					onAccentChange={changeTheme}
 				/>
-			</div>
-		</header>
+			</HeaderLinks>
+		</HeaderWrapper>
 	  )
 }
 

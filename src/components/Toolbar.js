@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { ThemeContext } from './../store';
 import FilterSettings from './FilterSettings';
-import { RadioInputWrapper, RadioInput } from './styled';
+import { RadioInputWrapper, RadioInput, ToolbarWrapper } from './styled';
 
 
 function Toolbar() {
@@ -17,16 +17,7 @@ function Toolbar() {
 		}
 	`
 	return (
-		<div
-			style={{
-				padding: '120px 0px 120px 0px',
-				display: 'flex',
-				flexDirection: 'row',
-				justifyContent: 'flex-end',
-				width: '100%',
-				alignItems: 'center'
-			}}
-		>
+		<ToolbarWrapper>
 			<RadioInputWrapper>
 				<RadioInputExtended name="sortingOrder" id="sortByAsc" value="sortByAsc"/>
 				<label className="form-check-label" htmlFor="sortingOrder">
@@ -43,7 +34,7 @@ function Toolbar() {
 			<FilterSettings
 				onFilterSelect={() => console.log("sjndskjn")}
 			/>
-		</div>
+		</ToolbarWrapper>
 	);
 }
 

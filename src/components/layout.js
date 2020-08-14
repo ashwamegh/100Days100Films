@@ -16,6 +16,15 @@ const Layout = ({ children }) => {
 		min-height: 100%;
 		margin: 0 auto;
 
+		@media (max-width: 621px) {
+			max-width: 90%;
+		}
+
+		@media (max-width: 512px) {
+			max-width: 100%;
+			padding: 20px;
+		}
+
 		div,
 		p,
 		span,

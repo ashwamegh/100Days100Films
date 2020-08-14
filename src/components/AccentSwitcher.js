@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import colorPickerLogo from './../images/color-picker.svg';
 import { customThemes } from './../helper/constants';
 import './AccentSwitcher.css';
-import { PopoverArrowUp } from './styled'
+import { PopoverArrowUp, AccentSwitcherImage } from './styled'
 
 function AccentSwitcher ({ themes, open, onToggle, onAccentChange }) {
 	const node = useRef();
@@ -39,7 +39,7 @@ function AccentSwitcher ({ themes, open, onToggle, onAccentChange }) {
 			className="accent-switcher"
 			ref={node}
 		>
-			<img
+			<AccentSwitcherImage
 				src={colorPickerLogo}
 				alt="Color picker icon"
 				height="38px"

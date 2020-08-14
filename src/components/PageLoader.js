@@ -35,6 +35,10 @@ const HorizontalTextExtended = styled(HorizontalText)`
 	@media (max-width: 400px) {
 		font-size: 55px;
 	}
+
+	@media (max-width: 350px) {
+		margin: 0px;
+	}
 `
 
 const VerticalTextExtended = styled(VerticalText)`
@@ -59,6 +63,12 @@ const VerticalTextExtended = styled(VerticalText)`
 	@media (max-width: 400px) {
 		font-size: 17px;
 		margin: 0px;
+	}
+
+	@media (max-width: 350px) {
+		span {
+			margin: 0px;
+		}
 	}
 `
 
