@@ -193,6 +193,7 @@ export const FilmsWrapper = styled.div`
 	@media (max-width: 512px) {
 		flex-flow: row nowrap;
 		overflow-x: scroll;
+		padding: 20px;
 	}
 `
 
