@@ -27,6 +27,14 @@ export const SloganTextWrapper = styled.div`
 	min-height: 200px;
 	align-items: center;
 	padding: 14px;
+
+	@media (max-width: 992px) {
+		min-height: 180px;
+	}
+
+	@media (max-width: 767px) {
+		min-height: 150px;
+	}
 `
 
 export const HorizontalText = styled.div`
