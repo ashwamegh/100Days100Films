@@ -5,7 +5,7 @@ import StarRatings from 'react-star-ratings';
 import { ThemeContext } from '../store';
 import { FilmDescription, FilmDetailsWrapper, FilmImage, FilmItemContainer, FilItemImageWrapper, DayBadge, DateBadge } from './styled';
 
-export default function FilmItem({ imageUrl, filmName, filmRating, filmYear, filmDay, filmWatchDate, filmDescription }) {
+export default function FilmItem({ moviePoster, movieName, movieRating, movieYear, dayWatched, dateWatched, movieDescription }) {
 	const { state } = useContext(ThemeContext);
 
 	return (
@@ -14,10 +14,10 @@ export default function FilmItem({ imageUrl, filmName, filmRating, filmYear, fil
 		>
 			<FilmItemContainer>
 					<DayBadge>
-						<span>Day: { filmDay }</span>
+						<span>Day: { dayWatched }</span>
 					</DayBadge>
 					<DateBadge>
-						<span>{ filmWatchDate }</span>
+						<span>{ dateWatched }</span>
 					</DateBadge>
 				
 				<FilItemImageWrapper
@@ -33,16 +33,16 @@ export default function FilmItem({ imageUrl, filmName, filmRating, filmYear, fil
 							boxShadow: `0px 0px 6px 0px ${state.color}`
 						}}
 					>
-						{ filmDescription }
+						{ movieDescription }
 					</FilmDescription>
-					<FilmImage src={imageUrl} alt={filmName} />
+					<FilmImage src={moviePoster} alt={movieName} />
 				</FilItemImageWrapper>
 
 				<FilmDetailsWrapper>
-					<p>{ filmName }</p>
-					<p>{ filmYear }</p>
+					<p>{ movieName }</p>
+					<p>{ movieYear }</p>
 					<StarRatings
-						rating={ filmRating }
+						rating={ movieRating }
 						starRatedColor="#FCD215"
 						numberOfStars={5}
 						starDimension="22px"
@@ -56,11 +56,11 @@ export default function FilmItem({ imageUrl, filmName, filmRating, filmYear, fil
 };
 
 FilmItem.propTypes = {
-	imageUrl: PropTypes.string.isRequired,
-	filmName: PropTypes.string.isRequired,
-	filmYear: PropTypes.number.isRequired,
-	filmRating: PropTypes.number.isRequired,
-	filmDay: PropTypes.string.isRequired,
-	filmWatchDate: PropTypes.string,
-	filmDescription: PropTypes.string.isRequired
+	moviePoster: PropTypes.string.isRequired,
+	movieName: PropTypes.string.isRequired,
+	movieYear: PropTypes.number.isRequired,
+	movieRating: PropTypes.number.isRequired,
+	dayWatched: PropTypes.string.isRequired,
+	dateWatched: PropTypes.string,
+	movieDescription: PropTypes.string.isRequired
 }

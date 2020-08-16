@@ -29,13 +29,13 @@ export default function Index () {
 				{ films.map((film, index) => 
 					<FilmItem 
 						key={index}
-						imageUrl={film.imageUrl}
-						filmName={film.filmName}
-						filmYear={film.filmYear}
-						filmRating={film.filmRating}
-						filmDay={film.filmDay}
-						filmWatchDate={film.filmWatchDate}
-						filmDescription={film.filmDescription}
+						moviePoster={film.moviePoster}
+						movieName={film.movieName}
+						movieYear={film.movieYear}
+						movieRating={film.movieRating}
+						dayWatched={film.dayWatched}
+						dateWatched={film.dateWatched}
+						movieDescription={film.movieDescription}
 					/>)
 				}
 			</FilmsWrapper>
