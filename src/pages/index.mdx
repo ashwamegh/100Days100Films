@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import Toolbar from '../components/Toolbar'
@@ -8,9 +8,28 @@ import Image from '../components/image'
 import SEO from '../components/seo'
 import PageLoader from '../components/PageLoader';
 import { FilmsWrapper } from './../components/styled';
-import films from '../content/films.json'
 
-export default function Index () {
+export const query = graphql`
+	query allFilmsQuery {
+		allFilmsJson {
+			edges {
+				node {
+					movieId
+					movieName
+					movieYear
+					moviePoster
+					movieRating
+					movieDescription
+					dayWatched
+					dateWatched
+				}
+			}
+		}
+	}
+`
+
+export default function Index ({ data: { allFilmsJson: { edges: filmEdges }} }) {
+	// console.log(filmEdges);
 	const [loading, setLoading] = useState(true);
 	useEffect(() => {
 		setTimeout(() => {
@@ -26,16 +45,17 @@ export default function Index () {
 			<SEO title="Home" keywords={['gatsby', 'application', 'react']} />
 			<Toolbar />
 			<FilmsWrapper>
-				{ films.map((film, index) => 
+				{ filmEdges.map(filmNode => 
 					<FilmItem 
-						key={index}
-						moviePoster={film.moviePoster}
-						movieName={film.movieName}
-						movieYear={film.movieYear}
-						movieRating={film.movieRating}
-						dayWatched={film.dayWatched}
-						dateWatched={film.dateWatched}
-						movieDescription={film.movieDescription}
+						key={filmNode["node"].movieId}
+						movieId={filmNode["node"].movieId}
+						moviePoster={filmNode["node"].moviePoster}
+						movieName={filmNode["node"].movieName}
+						movieYear={filmNode["node"].movieYear}
+						movieRating={filmNode["node"].movieRating}
+						dayWatched={filmNode["node"].dayWatched}
+						dateWatched={filmNode["node"].dateWatched}
+						movieDescription={filmNode["node"].movieDescription}
 					/>)
 				}
 			</FilmsWrapper>
