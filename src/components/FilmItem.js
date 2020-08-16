@@ -5,12 +5,12 @@ import StarRatings from 'react-star-ratings';
 import { ThemeContext } from '../store';
 import { FilmDescription, FilmDetailsWrapper, FilmImage, FilmItemContainer, FilItemImageWrapper, DayBadge, DateBadge } from './styled';
 
-export default function FilmItem({ moviePoster, movieName, movieRating, movieYear, dayWatched, dateWatched, movieDescription }) {
+export default function FilmItem({ movieId, moviePoster, movieName, movieRating, movieYear, dayWatched, dateWatched, movieDescription }) {
 	const { state } = useContext(ThemeContext);
 
 	return (
 		<Link
-			to={"/page-2"}
+			to={`/movie/${movieId}`}
 		>
 			<FilmItemContainer>
 					<DayBadge>
@@ -62,5 +62,6 @@ FilmItem.propTypes = {
 	movieRating: PropTypes.number.isRequired,
 	dayWatched: PropTypes.string.isRequired,
 	dateWatched: PropTypes.string,
-	movieDescription: PropTypes.string.isRequired
+	movieDescription: PropTypes.string.isRequired,
+	movieId: PropTypes.number.isRequired
 }
