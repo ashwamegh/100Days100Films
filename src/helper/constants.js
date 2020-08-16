@@ -18,6 +18,10 @@ export const customThemes = {
 	'Red & Yellow': {
 		color: "red",
 		backgroundColor: "yellow"
+	},
+	'Dream': {
+		color: "#e7abec",
+		backgroundColor: "#3f1366"
 	}
 }
 
