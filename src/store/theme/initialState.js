@@ -3,7 +3,7 @@ import { customThemes } from './../../helper/constants';
 // const randomTheme = customThemes['White & Black'];
 
 const initialState = {
-	...customThemes['White & Black']
+	...customThemes['Reverse Burn Out']
 }
 
 export { initialState }
