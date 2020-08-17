@@ -48,12 +48,10 @@ export const query = graphql`
 	}
 `
 
-function FilmInfo({ filmNo, data: { allFilmsJson: { edges: filmDetails }} }) {
+function FilmInfo({ data: { allFilmsJson: { edges: filmDetails }} }) {
 	const film = filmDetails[0].node;
-	console.log(film);
-
 	const [shouldPlayTrailer, setPlaytrailerStatus] = useState(false);
-	const { data: palette, loading } = usePalette("https://image.tmdb.org/t/p/original/wO5QSWZPBT71gMLvrRex0bVc0V9.jpg");
+	const { data: palette, loading } = usePalette(film.moviePoster);
 	const { state } = useContext(ThemeContext);
 	const rating = 6.6;
 
@@ -104,7 +102,7 @@ function FilmInfo({ filmNo, data: { allFilmsJson: { edges: filmDetails }} }) {
 					</FilmPosterWrapper>
 					<FilmOverviewWrapper>
 						<FilmTitleAndBadge>
-							<h1>The Kissing Booth 2 (2020)</h1>
+							<h1>{`${film.movieName} (${film.movieYear})`}</h1>
 							<h4></h4>
 							<FilmBadges>
 								<li>
@@ -140,7 +138,7 @@ function FilmInfo({ filmNo, data: { allFilmsJson: { edges: filmDetails }} }) {
 							</FilmBadges>
 
 							<p>
-								An anthology series that goes beyond the headlines to look at the funny, romantic, heartfelt, inspiring and surprising stories of immigrants in America at a time when they are more relevant than ever.
+								{ film.movieDescription }
 							</p>
 							<FilmCaptions>
 								<span>EN</span>
@@ -164,14 +162,6 @@ function FilmInfo({ filmNo, data: { allFilmsJson: { edges: filmDetails }} }) {
 			</CenteredRowFlex>
 		</FilmDetailsContainer>
 	)
-}
-
-FilmInfo.propTypes = {
-	filmNo: PropTypes.number
-}
-
-FilmInfo.defaultProps = {
-	filmNo: 1
 }
 
 export default FilmInfo;
