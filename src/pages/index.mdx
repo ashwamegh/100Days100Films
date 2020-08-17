@@ -32,9 +32,20 @@ export default function Index ({ data: { allFilmsJson: { edges: filmEdges }} }) 
 	// console.log(filmEdges);
 	const [loading, setLoading] = useState(true);
 	useEffect(() => {
+		const config = window.localStorage.getItem("config");
+		let loadTime = 3000;
+		if(config) {
+			const parsedConfig = JSON.parse(config);
+			if(parsedConfig.loaded) {
+				loadTime = 300;
+			}
+		}
 		setTimeout(() => {
 			setLoading(false);
-		}, 3000);
+		}, loadTime);
+		window.localStorage.setItem("config", JSON.stringify({
+			loaded: true
+		}));
 	}, []);
 	return loading ?
 	(
