@@ -16,6 +16,7 @@ import {
 	FilmPosterBackground,
 	FilmOverviewWrapper,
 	FilmTitleAndBadge,
+	FilmStreamingProviders,
 	FilmBadges,
 	FilmBadgesCaption,
 	RatingBadge,
@@ -135,6 +136,20 @@ function FilmInfo({ data: { allFilmsJson: { edges: filmDetails }} }) {
 							<FilmCaptions>
 								<span>{ film.movieLanguage }</span>
 							</FilmCaptions>
+							<FilmStreamingProviders>
+								<a href={"https://image.tmdb.org/t/p/original/4KAy34EHvRM25Ih8wb82AuGU7zJ.png"} target="_blank">
+									<li>
+										<span>
+											<img src="https://image.tmdb.org/t/p/original/4KAy34EHvRM25Ih8wb82AuGU7zJ.png" alt="Apple TV+" />
+										</span>
+									</li>
+								</a>
+								<li>
+									<span>
+										<img src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="Apple TV+" />
+									</span>
+								</li>
+							</FilmStreamingProviders>
 							<FilmCTAButtonsWrapper>
 								<CTAButton
 									onClick={() => setPlaytrailerStatus(true)}

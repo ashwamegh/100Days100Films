@@ -640,6 +640,34 @@ export const FilmTitleAndBadge = styled.div`
 	}
 `
 
+export const FilmStreamingProviders = styled.ul`
+	align-items: center;
+	border-radius: 7px;
+	display: flex;
+	list-style-type: none;
+	align-content: center;
+	padding: 10px 0!important;
+
+	li {
+		width: 120px;
+		border: 0;
+		background: rgb(210 210 210 / 80%);
+		backdrop-filter: blur(4px);
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 5px;
+		margin-right: 10px;
+		cursor: pointer;
+	}
+
+	img {
+		max-width: 100%;
+		max-height: 20px;
+	}
+`
+
 export const FilmBadges = styled.ul`
 	background: rgba(74,71,71,.45);
 	padding: 6px 10px;
