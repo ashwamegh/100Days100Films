@@ -115,7 +115,7 @@ const YoutubeTitle = styled.h4`
 	}
 `
 
-function PlayTrailer ({ url, onBackButtonClick }) {
+function PlayTrailer ({ url, onBackButtonClick, title }) {
 	return (
 		<VideoPopup>
 			<VideoHeader>
@@ -133,7 +133,7 @@ function PlayTrailer ({ url, onBackButtonClick }) {
 				>
 					<img src={YoutubeButtonIcon} alt="Youtube Play"/>
 				</YoutubeButton>
-				<YoutubeTitle>Little America — Official Trailer | Apple TV+</YoutubeTitle>
+				<YoutubeTitle>{ title }</YoutubeTitle>
 			</VideoHeader>
 			<div
 				style={{
@@ -157,7 +157,8 @@ function PlayTrailer ({ url, onBackButtonClick }) {
 
 PlayTrailer.propTypes = {
 	url: PropTypes.string.isRequired,
-	onBackButtonClick: PropTypes.func
+	onBackButtonClick: PropTypes.func,
+	title: PropTypes.string.isRequired
 }
 
 export default PlayTrailer;

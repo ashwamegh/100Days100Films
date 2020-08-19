@@ -37,11 +37,14 @@ export const query = graphql`
 					movieName
 					movieYear
 					moviePoster
-					movieRating
+					imdbRating
 					movieDescription
 					dayWatched
 					dateWatched
 					movieId
+					movieGenre
+					movieLanguage
+					movieTrailer
 				}
 			}
 		}
@@ -53,14 +56,14 @@ function FilmInfo({ data: { allFilmsJson: { edges: filmDetails }} }) {
 	const [shouldPlayTrailer, setPlaytrailerStatus] = useState(false);
 	const { data: palette, loading } = usePalette(film.moviePoster);
 	const { state } = useContext(ThemeContext);
-	const rating = 6.6;
 
 	return (
 		<FilmDetailsContainer>
 			{shouldPlayTrailer &&
 				(<PlayTrailer
-					url={"https://www.youtube.com/watch?v=xCke0hXoCf8"}
+					url={film.movieTrailer}
 					onBackButtonClick={() => setPlaytrailerStatus(false)}
+					title={`${film.movieName} (${film.movieYear}) Trailer`}
 				/>)
 			}
 			<Link to="/">
@@ -77,17 +80,6 @@ function FilmInfo({ data: { allFilmsJson: { edges: filmDetails }} }) {
 					}}
 				>
 					<FullPageBackdropImage style={{ opacity: '0.5' }} src={ film.moviePoster }/>
-					{/* {
-						palette && !loading &&
-						(
-							<FullPageBackdropDiv
-								style={{
-									backgroundColor: palette.darkVibrant || 'black',
-									backgroundImage: `linear-gradient(${palette.darkVibrant || 'rgb(10, 5, 7)'}, rgb(10, 5, 7) 85%)`
-								}}
-							/>
-						)
-					} */}
 				</FullPageBackdropImageContainer>
 			</FullPageBackdrop>
 			<CenteredRowFlex>
@@ -109,8 +101,8 @@ function FilmInfo({ data: { allFilmsJson: { edges: filmDetails }} }) {
 									<FilmBadgesCaption>IMDB:</FilmBadgesCaption>
 									<RatingBadge>
 										<CircularProgressbar
-											value={rating * 10}
-											text={rating}
+											value={film.imdbRating * 10}
+											text={film.imdbRating}
 											strokeWidth={15}
 											styles={buildStyles({
 												textSize: '32px',
@@ -123,7 +115,7 @@ function FilmInfo({ data: { allFilmsJson: { edges: filmDetails }} }) {
 								<li>
 									<FilmCaptions>
 										<ul>
-											{["Drama", "Comedy"].map((genre, key) => <li key={key}>{ genre }</li>)}
+											{film.movieGenre.split(',').map(movie => movie.trim()).map((genre, key) => <li key={key}>{ genre }</li>)}
 										</ul>
 									</FilmCaptions>
 								</li>
@@ -141,7 +133,7 @@ function FilmInfo({ data: { allFilmsJson: { edges: filmDetails }} }) {
 								{ film.movieDescription }
 							</p>
 							<FilmCaptions>
-								<span>EN</span>
+								<span>{ film.movieLanguage }</span>
 							</FilmCaptions>
 							<FilmCTAButtonsWrapper>
 								<CTAButton
