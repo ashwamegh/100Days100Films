@@ -7,12 +7,12 @@
 		"dayWatched": "01",
 		"dateWatched": "06.06.20",
 		"movieDescription": "Years after a plague kills most of humanity and transforms the rest into monsters, the sole survivor in New York City struggles valiantly to find a cure in this post-apocalyptic action thriller.",
-		"movieGenre": "",
-		"movieLanguage": "",
-		"movieTrailer": "",
-		"imdbRating": "",
-		"imdbLink": "",
-		"jwId": "",
+		"movieGenre": "Action, Adventure, Drama",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/dtKMEAXyPkg",
+		"imdbRating": 7.2,
+		"imdbLink": "https://www.imdb.com/title/tt0480249",
+		"jwId": "70807",
 		"movieId": 1
 	},
 	{
@@ -23,8 +23,12 @@
 		"dayWatched": "01",
 		"dateWatched": "06.06.20",
 		"movieDescription": "In 2074, when the mob wants to get rid of someone, the target is sent into the past, where a hired gun awaits - someone like Joe - who one day learns the mob wants to 'close the loop' by sending back Joe's future self for assassination.",
-		"imdbRating": "",
-		"imdbLink": "",
+		"movieGenre": "Action, Drama, Sci-Fi",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/2iQuhsmtfHw",
+		"imdbRating": 7.4,
+		"imdbLink": "https://www.imdb.com/title/tt1276104",
+		"jwId": "50018",
 		"movieId": 2
 	},
 	{
@@ -35,8 +39,12 @@
 		"dayWatched": "02",
 		"dateWatched": "07.06.20",
 		"movieDescription": "A sleep-deprived office worker photocopies a \"Black Hole\" late one night. Suddenly, the possibilities seem endless. Will greed get the better of him?",
-		"imdbRating": "",
-		"imdbLink": "",
+		"movieGenre": "Short, Comedy, Crime",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/P5_Msrdg3Hk",
+		"imdbRating": 7.4,
+		"imdbLink": "https://www.imdb.com/title/tt1430144",
+		"jwId": "",
 		"movieId": 3
 	},
 	{
@@ -47,8 +55,12 @@
 		"dayWatched": "02",
 		"dateWatched": "07.06.20",
 		"movieDescription": "An android endeavors to become human as he gradually acquires emotions.",
-		"imdbRating": "",
-		"imdbLink": "",
+		"movieGenre": "Comedy, Drama, Sci-Fi",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/nZ7HxlhVDyM",
+		"imdbRating": 6.9,
+		"imdbLink": "https://www.imdb.com/title/tt0182789",
+		"jwId": "53081",
 		"movieId": 4
 	},
 	{
@@ -61,6 +73,10 @@
 		"movieDescription": "A hugely talented but socially isolated computer operator is tasked by Management to prove the Zero Theorem: that the universe ends as nothing, rendering life meaningless. But meaning is what he already craves.",
 		"imdbRating": 6.1,
 		"imdbLink": "https://www.imdb.com/title/tt2333804",
+		"movieGenre": "Comedy, Drama, Fantasy",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/HWgPnQi-XG4",
+		"jwId": "",
 		"movieId": 5
 	},
 	{
@@ -73,6 +89,10 @@
 		"movieDescription": "Will Hunting, a janitor at M.I.T., has a gift for mathematics, but needs help from a psychologist to find direction in his life.",
 		"imdbRating": 8.3,
 		"imdbLink": "https://www.imdb.com/title/tt0119217",
+		"movieGenre": "Drama, Romance",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/PaZVjZEFkRs",
+		"jwId": "191716",
 		"movieId": 6
 	},
 	{
@@ -85,6 +105,10 @@
 		"movieDescription": "The dramatization of a motorcycle road trip Che Guevara went on in his youth that showed him his life's calling.",
 		"imdbRating": 7.8,
 		"imdbLink": "https://www.imdb.com/title/tt0318462",
+		"movieGenre": "Adventure, Biography, Drama",
+		"movieLanguage": "ES",
+		"movieTrailer": "https://youtu.be/RWBsQArUkQY",
+		"jwId": "",
 		"movieId": 7
 	},
 	{
@@ -97,6 +121,10 @@
 		"movieDescription": "The journey that led to Charles Dickens' creation of \"A Christmas Carol,\" a timeless tale that would redefine Christmas.",
 		"imdbRating": 7.0,
 		"imdbLink": "https://www.imdb.com/title/tt6225520",
+		"movieGenre": "Biography, Comedy, Drama",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/UxcnYR3mcPU",
+		"jwId": "340212",
 		"movieId": 8
 	},
 	{
@@ -109,6 +137,10 @@
 		"movieDescription": "The story of James J. Braddock, a supposedly washed-up boxer who came back to become a champion and an inspiration in the 1930s.",
 		"imdbRating": 8.0,
 		"imdbLink": "https://www.imdb.com/title/tt0352248",
+		"movieGenre": "Biography, Drama, History",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/DlbHzcH4VJY",
+		"jwId": "",
 		"movieId": 9
 	},
 	{
@@ -121,6 +153,10 @@
 		"movieDescription": "A Polish Jewish musician struggles to survive the destruction of the Warsaw ghetto of World War II.",
 		"imdbRating": 8.5,
 		"imdbLink": "https://www.imdb.com/title/tt0253474",
+		"movieGenre": "Biography, Drama, Music",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/BFwGqLa_oAo",
+		"jwId": "114752",
 		"movieId": 10
 	},
 	{
@@ -133,6 +169,10 @@
 		"movieDescription": "A man becomes obsessed with facts and events that have been collectively misremembered by thousands of people. Believing the phenomena to be the symptom of something larger, his obsession eventually leads him to question reality itself.",
 		"imdbRating": 5.7,
 		"imdbLink": "https://www.imdb.com/title/tt6544220",
+		"movieGenre": "Drama, Sci-Fi, Thriller",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/qfYw6hSTgE0",
+		"jwId": "",
 		"movieId": 11
 	},
 	{
@@ -145,6 +185,10 @@
 		"movieDescription": "Iqbal, the deaf and mute son of a farmer, has a passion for the game of cricket and seeks the tutelage of a washed-up, alcoholic ex-player.",
 		"imdbRating": 8.1,
 		"imdbLink": "https://www.imdb.com/title/tt0453729",
+		"movieGenre": "Drama, Sport",
+		"movieLanguage": "HI",
+		"movieTrailer": "https://youtu.be/5OIco9k7KcE",
+		"jwId": "180815",
 		"movieId": 12
 	},
 	{
@@ -157,6 +201,10 @@
 		"movieDescription": "A criminal pleads insanity and is admitted to a mental institution, where he rebels against the oppressive nurse and rallies up the scared patients.",
 		"imdbRating": 8.7,
 		"imdbLink": "https://www.imdb.com/title/tt0073486",
+		"movieGenre": "Drama",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/OXrcDonY-B8",
+		"jwId": "127410",
 		"movieId": 13
 	}
 ]
