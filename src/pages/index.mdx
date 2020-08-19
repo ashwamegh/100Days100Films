@@ -27,25 +27,38 @@ export const query = graphql`
 		}
 	}
 `
+async function fetchStreamingProviders() {
+	try {
+		const response = await fetch('https://apis.justwatch.com/content/providers/locale/en_IN');
+		const responseData = await response.json();
+		return responseData;
+	} catch (error) {
+		throw error;
+	}
+}
 
 export default function Index ({ data: { allFilmsJson: { edges: filmEdges }} }) {
 	// console.log(filmEdges);
 	const [loading, setLoading] = useState(true);
 	useEffect(() => {
-		const config = window.localStorage.getItem("config");
-		let loadTime = 3000;
-		if(config) {
-			const parsedConfig = JSON.parse(config);
-			if(parsedConfig.loaded) {
-				loadTime = 300;
+		(async () => {
+			const config = window.localStorage.getItem("config");
+			let loadTime = 3000;
+			if(config) {
+				const parsedConfig = JSON.parse(config);
+				if(parsedConfig.loaded) {
+					loadTime = 300;
+				}
 			}
-		}
-		setTimeout(() => {
-			setLoading(false);
-		}, loadTime);
-		window.localStorage.setItem("config", JSON.stringify({
-			loaded: true
-		}));
+			setTimeout(() => {
+				setLoading(false);
+			}, loadTime);
+			window.localStorage.setItem("config", JSON.stringify({ loaded: true } ));
+			const stramingProviders = await fetchStreamingProviders();
+			const parseStreamingProviders = [];
+			stramingProviders.forEach((provdr) => parseStreamingProviders[provdr.id] = { name: provdr.clear_name, key: provdr.technical_name })
+			console.log(parseStreamingProviders);
+		})();
 	}, []);
 	return loading ?
 	(
