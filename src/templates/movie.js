@@ -71,10 +71,10 @@ function FilmInfo({ data: { allFilmsJson: { edges: filmDetails }} }) {
 	const { data: palette } = usePalette(film.moviePoster);
 	const { state } = useContext(ThemeContext);
 	const { state: movieState } = useContext(MovieContext);
-	let count = 0;
 
 	useEffect(() => {
 		(async function () {
+			document.title = `${film.movieName} | 100Days100Films`;
 			if(!film.jwId) {
 				setLoading(false);
 				return ;
@@ -99,149 +99,151 @@ function FilmInfo({ data: { allFilmsJson: { edges: filmDetails }} }) {
 	}, []);
 
 	return (
-		<FilmDetailsContainer>
-			{shouldPlayTrailer &&
-				(<PlayTrailer
-					url={film.movieTrailer}
-					onBackButtonClick={() => setPlaytrailerStatus(false)}
-					title={`${film.movieName} (${film.movieYear}) Trailer`}
-				/>)
-			}
-			<Link to="/">
-				<CloseButton
-					src={closeButtonIcon}
-					alt="Close"
-				/>
-			</Link>
-			<FullPageBackdrop>
-				<FullPageBackdropImageContainer
-					style={{
-						backgroundColor: palette.vibrant || 'black',
-						backgroundImage: `linear-gradient(${palette.vibrant || 'rgb(10, 5, 7)'}, rgb(10, 5, 7) 85%)`
-					}}
-				>
-					<FullPageBackdropImage style={{ opacity: '0.5' }} src={ film.moviePoster }/>
-				</FullPageBackdropImageContainer>
-			</FullPageBackdrop>
-			<CenteredRowFlex>
-				<FilmDetails>
-					<FilmPosterWrapper>
-						<FilmPosterBackground>
-							<img 
-								src={ film.moviePoster }
-								alt="backdrop"
-							/>
-						</FilmPosterBackground>
-					</FilmPosterWrapper>
-					<FilmOverviewWrapper>
-						<FilmTitleAndBadge>
-							<h1>{`${film.movieName} (${film.movieYear})`}</h1>
-							<h4></h4>
-							<FilmBadges>
-								<li>
-									<FilmBadgesCaption>IMDB:</FilmBadgesCaption>
-									<RatingBadge>
-										<CircularProgressbar
-											value={film.imdbRating * 10}
-											text={film.imdbRating}
-											strokeWidth={15}
-											styles={buildStyles({
-												textSize: '32px',
-												textColor: palette.lightMuted,
-												pathColor: palette.vibrant
-											})}
-										/>
-									</RatingBadge>
-								</li>
-								<li>
-									<FilmCaptions>
-										<ul>
-											{film.movieGenre.split(',').map(movie => movie.trim()).map((genre, key) => <li key={key}>{ genre }</li>)}
-										</ul>
-									</FilmCaptions>
-								</li>
-								<li>
-									<a
-										href="https://tv.apple.com/show/little-america/umc.cmc.2ice8mlcn1zrtxf81e5ktwg8p"
-										target="_blank"
-										className="button button--link"
-										rel="noopener noreferrer"
-									><i className="fal fa-home"></i></a>
-								</li>
-							</FilmBadges>
-							{/* If Movie Providers are available */}
-							{ Object.keys(movieProviders).length > 0 && !loading &&
-								(
-									<FilmStreamingProviders>
-									{
-										Object.keys(movieProviders).map(providerId => {
-										const provider = movieProviders[providerId];
+		<>
+			<FilmDetailsContainer>
+				{shouldPlayTrailer &&
+					(<PlayTrailer
+						url={film.movieTrailer}
+						onBackButtonClick={() => setPlaytrailerStatus(false)}
+						title={`${film.movieName} (${film.movieYear}) Trailer`}
+					/>)
+				}
+				<Link to="/">
+					<CloseButton
+						src={closeButtonIcon}
+						alt="Close"
+					/>
+				</Link>
+				<FullPageBackdrop>
+					<FullPageBackdropImageContainer
+						style={{
+							backgroundColor: palette.vibrant || 'black',
+							backgroundImage: `linear-gradient(${palette.vibrant || 'rgb(10, 5, 7)'}, rgb(10, 5, 7) 85%)`
+						}}
+					>
+						<FullPageBackdropImage style={{ opacity: '0.5' }} src={ film.moviePoster }/>
+					</FullPageBackdropImageContainer>
+				</FullPageBackdrop>
+				<CenteredRowFlex>
+					<FilmDetails>
+						<FilmPosterWrapper>
+							<FilmPosterBackground>
+								<img 
+									src={ film.moviePoster }
+									alt="backdrop"
+								/>
+							</FilmPosterBackground>
+						</FilmPosterWrapper>
+						<FilmOverviewWrapper>
+							<FilmTitleAndBadge>
+								<h1>{`${film.movieName} (${film.movieYear})`}</h1>
+								<h4></h4>
+								<FilmBadges>
+									<li>
+										<FilmBadgesCaption>IMDB:</FilmBadgesCaption>
+										<RatingBadge>
+											<CircularProgressbar
+												value={film.imdbRating * 10}
+												text={film.imdbRating}
+												strokeWidth={15}
+												styles={buildStyles({
+													textSize: '32px',
+													textColor: palette.lightMuted,
+													pathColor: palette.vibrant
+												})}
+											/>
+										</RatingBadge>
+									</li>
+									<li>
+										<FilmCaptions>
+											<ul>
+												{film.movieGenre.split(',').map(movie => movie.trim()).map((genre, key) => <li key={key}>{ genre }</li>)}
+											</ul>
+										</FilmCaptions>
+									</li>
+									<li>
+										<a
+											href="https://tv.apple.com/show/little-america/umc.cmc.2ice8mlcn1zrtxf81e5ktwg8p"
+											target="_blank"
+											className="button button--link"
+											rel="noopener noreferrer"
+										><i className="fal fa-home"></i></a>
+									</li>
+								</FilmBadges>
+								{/* If Movie Providers are available */}
+								{ Object.keys(movieProviders).length > 0 && !loading &&
+									(
+										<FilmStreamingProviders>
+										{
+											Object.keys(movieProviders).map(providerId => {
+											const provider = movieProviders[providerId];
 
-											return (
-												<a href={provider.url} target="_blank" key={providerId}>
-													<li style={{
-														backgroundColor: palette.lightVibrant
-													}}>
+												return (
+													<a href={provider.url} target="_blank" key={providerId}>
+														<li style={{
+															backgroundColor: palette.lightVibrant
+														}}>
+															<span>
+																<img src={provider.logo} alt={provider.name}/>
+															</span>
+														</li>
+													</a>
+												)
+											})
+										}
+										</FilmStreamingProviders>
+									)
+								}
+								{/* If Movie Providers are not available */}
+								{ Object.keys(movieProviders).length === 0 && !loading &&
+									(
+										<FilmStreamingProviders>
+											<span style={{ color: "#fff", fontWeight: 600 }}>Streaming providers not available</span>
+										</FilmStreamingProviders>
+									)
+								}
+								{/* If Movie Providers are loading */}
+								{ loading &&
+									(
+										<FilmStreamingProviders>
+										{
+											[1,2,3,4].map((num) => (
+												<a href={"#"} key={num}>
+													<li className="shine">
 														<span>
-															<img src={provider.logo} alt={provider.name}/>
 														</span>
 													</li>
 												</a>
-											)
-										})
-									}
-									</FilmStreamingProviders>
-								)
-							}
-							{/* If Movie Providers are not available */}
-							{ Object.keys(movieProviders).length === 0 && !loading &&
-								(
-									<FilmStreamingProviders>
-										<span style={{ color: "#fff", fontWeight: 600 }}>Streaming providers not available</span>
-									</FilmStreamingProviders>
-								)
-							}
-							{/* If Movie Providers are loading */}
-							{ loading &&
-								(
-									<FilmStreamingProviders>
-									{
-										[1,2,3,4].map((num) => (
-											<a href={"#"} key={num}>
-												<li className="shine">
-													<span>
-													</span>
-												</li>
-											</a>
-										))
-									}
-									</FilmStreamingProviders>
-								) 
-							}
-							<p>
-								{ film.movieDescription }
-							</p>
-							<FilmCaptions>
-								<span>{ film.movieLanguage }</span>
-							</FilmCaptions>
-							<FilmCTAButtonsWrapper>
-								<CTAButton
-									onClick={() => setPlaytrailerStatus(true)}
-									style={{
-										backgroundColor: state.color
-									}}
-								>
-									<PlayButton fill={state.backgroundColor} />
-									<span style={{ color: state.backgroundColor }}>
-										Trailer
-									</span>
-								</CTAButton>
-							</FilmCTAButtonsWrapper>
-						</FilmTitleAndBadge>
-					</FilmOverviewWrapper>
-				</FilmDetails>
-			</CenteredRowFlex>
-		</FilmDetailsContainer>
+											))
+										}
+										</FilmStreamingProviders>
+									) 
+								}
+								<p>
+									{ film.movieDescription }
+								</p>
+								<FilmCaptions>
+									<span>{ film.movieLanguage }</span>
+								</FilmCaptions>
+								<FilmCTAButtonsWrapper>
+									<CTAButton
+										onClick={() => setPlaytrailerStatus(true)}
+										style={{
+											backgroundColor: state.color
+										}}
+									>
+										<PlayButton fill={state.backgroundColor} />
+										<span style={{ color: state.backgroundColor }}>
+											Trailer
+										</span>
+									</CTAButton>
+								</FilmCTAButtonsWrapper>
+							</FilmTitleAndBadge>
+						</FilmOverviewWrapper>
+					</FilmDetails>
+				</CenteredRowFlex>
+			</FilmDetailsContainer>
+		</>
 	)
 }
 
