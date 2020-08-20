@@ -1,13 +1,15 @@
 import React from 'react';
 import Container from './src/components/container';
-import { ThemeContextProvider } from './src/store'
+import { ThemeContextProvider, MovieContextProvider } from './src/store'
 
 export const wrapRootElement = ({ element }) => {
   return (
       <ThemeContextProvider>
-        <Container>
-            {element}
-        </Container>
+	  	<MovieContextProvider>
+			<Container>
+				{element}
+			</Container>
+		</MovieContextProvider>
     </ThemeContextProvider>
   )
 }

@@ -1,3 +1,6 @@
 // Theme Types
 export const UPDATE_CURRENT_THEME = 'UPDATE_CURRENT_THEME';
 export const CLEAR = 'CLEAR';
+
+export const UPDATE_STREAMING_PROVIDERS = 'UPDATE_STREAMING_PROVIDERS';
+export const CLEAR_MOVIE_DATA = 'CLEAR';

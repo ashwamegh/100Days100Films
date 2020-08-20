@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
@@ -8,6 +8,9 @@ import Image from '../components/image'
 import SEO from '../components/seo'
 import PageLoader from '../components/PageLoader';
 import { FilmsWrapper } from './../components/styled';
+import { MovieContext } from './../store'
+import { UPDATE_STREAMING_PROVIDERS } from './../store/types';
+import { streamingProviders } from './../helper/constants';
 
 export const query = graphql`
 	query allFilmsQuery {
@@ -40,6 +43,7 @@ async function fetchStreamingProviders() {
 export default function Index ({ data: { allFilmsJson: { edges: filmEdges }} }) {
 	// console.log(filmEdges);
 	const [loading, setLoading] = useState(true);
+	const { dispatch } = useContext(MovieContext);
 	useEffect(() => {
 		(async () => {
 			const config = window.localStorage.getItem("config");
@@ -56,8 +60,8 @@ export default function Index ({ data: { allFilmsJson: { edges: filmEdges }} }) 
 			window.localStorage.setItem("config", JSON.stringify({ loaded: true } ));
 			const stramingProviders = await fetchStreamingProviders();
 			const parseStreamingProviders = [];
-			stramingProviders.forEach((provdr) => parseStreamingProviders[provdr.id] = { name: provdr.clear_name, key: provdr.technical_name })
-			console.log(parseStreamingProviders);
+			stramingProviders.forEach((provdr) => parseStreamingProviders[provdr.id] = { name: provdr.clear_name, key: provdr.technical_name, logo: streamingProviders[provdr.technical_name] || "" })
+			await dispatch({ type: UPDATE_STREAMING_PROVIDERS, payload: parseStreamingProviders });
 		})();
 	}, []);
 	return loading ?
