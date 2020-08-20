@@ -2,51 +2,17 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import StarRatings from 'react-star-ratings';
-import { ThemeContext, MovieContext } from '../store';
+import { ThemeContext } from '../store';
 import { FilmDescription, FilmDetailsWrapper, FilmImage, FilmItemContainer, FilItemImageWrapper, DayBadge, DateBadge } from './styled';
-import { SET_MOVIE_PROVIDERS } from '../store/types';
 
-async function fetchMovieStreamingProvider(jwId) {
-	try {
-		const response = await fetch(`https://apis.justwatch.com/content/titles/movie/${jwId}/locale/en_IN?language=en`);
-		const responseData = await response.json();
-		return responseData;
-	} catch (error) {
-		throw error;
-	}
-}
 
-export default function FilmItem({ movieId, moviePoster, movieName, movieRating, movieYear, dayWatched, dateWatched, movieDescription, jwId }) {
+
+export default function FilmItem({ movieId, moviePoster, movieName, movieRating, movieYear, dayWatched, dateWatched, movieDescription }) {
 	const { state } = useContext(ThemeContext);
-	const { state: movieState, dispatch } = useContext(MovieContext);
-
-	async function loadMovieProviders () {
-		console.log(jwId);
-		if(!jwId) {
-			dispatch({ type: SET_MOVIE_PROVIDERS, payload: {} });
-			return ;
-		}
-
-		const { offers = null } = await fetchMovieStreamingProvider(jwId);
-		if(offers) {
-			const allStreams = {};
-			offers.forEach((offer) => {
-				if(!Object.prototype.hasOwnProperty.call(allStreams, offer.provider_id)) {
-					allStreams[offer.provider_id] = {
-						url: offer.urls.standard_web || "",
-						logo: movieState.streamingProviders[offer.provider_id].logo,
-						name: movieState.streamingProviders[offer.provider_id].name
-					}
-				}
-			});
-			dispatch({ type: SET_MOVIE_PROVIDERS, payload: allStreams });
-		}
-	}
 
 	return (
 		<Link
 			to={`/movie/${movieId}`}
-			onClick={loadMovieProviders}
 		>
 			<FilmItemContainer>
 					<DayBadge>

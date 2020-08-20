@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link, graphql } from 'gatsby';
 import { usePalette } from 'react-palette'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
@@ -28,6 +28,7 @@ import PlayButton from './../assets/PlayButton';
 import PlayTrailer from './../components/PlayTrailer';
 
 import { ThemeContext, MovieContext } from './../store';
+import { SET_MOVIE_PROVIDERS } from './../store/types'
 
 export const query = graphql`
 	query queryMovie($movieId: Int) {
@@ -51,12 +52,49 @@ export const query = graphql`
 		}
 	}
 `
+
+async function fetchMovieStreamingProvider(jwId) {
+	try {
+		const response = await fetch(`https://apis.justwatch.com/content/titles/movie/${jwId}/locale/en_IN?language=en`);
+		const responseData = await response.json();
+		return responseData;
+	} catch (error) {
+		throw error;
+	}
+}
+
+
 function FilmInfo({ data: { allFilmsJson: { edges: filmDetails }} }) {
 	const film = filmDetails[0].node;
 	const [shouldPlayTrailer, setPlaytrailerStatus] = useState(false);
+	const [movieProviders, setMovieProviders] = useState({});
 	const { data: palette, loading } = usePalette(film.moviePoster);
 	const { state } = useContext(ThemeContext);
-	const { state: movieState } = useContext(MovieContext);
+	const { state: movieState, dispatch } = useContext(MovieContext);
+	let count = 0;
+
+	useEffect(() => {
+		(async function () {
+			if(!film.jwId) {
+				return ;
+			}
+	
+			const { offers = null } = await fetchMovieStreamingProvider(film.jwId);
+			if(offers) {
+				const allStreams = {};
+				offers.forEach((offer) => {
+					if(!Object.prototype.hasOwnProperty.call(allStreams, offer.provider_id)) {
+						allStreams[offer.provider_id] = {
+							url: offer.urls.standard_web || "",
+							logo: movieState.streamingProviders[offer.provider_id].logo,
+							name: movieState.streamingProviders[offer.provider_id].name
+						}
+					}
+				});
+				setMovieProviders(allStreams);
+			}
+		})();
+	}, []);
 
 	return (
 		<FilmDetailsContainer>
@@ -129,22 +167,17 @@ function FilmInfo({ data: { allFilmsJson: { edges: filmDetails }} }) {
 									><i className="fal fa-home"></i></a>
 								</li>
 							</FilmBadges>
-
-							<p>
-								{ film.movieDescription }
-							</p>
-							<FilmCaptions>
-								<span>{ film.movieLanguage }</span>
-							</FilmCaptions>
-							{ Object.keys(movieState.movieProviders).length > 0 &&
+							{ Object.keys(movieProviders).length > 0 &&
 								(<FilmStreamingProviders>
 									{
-										Object.keys(movieState.movieProviders).map(providerId => {
-										const provider = movieState.movieProviders[providerId];
+										Object.keys(movieProviders).map(providerId => {
+										const provider = movieProviders[providerId];
 
 											return (
 												<a href={provider.url} target="_blank" key={providerId}>
-													<li>
+													<li style={{
+														backgroundColor: palette.lightVibrant
+													}}>
 														<span>
 															<img src={provider.logo} alt={provider.name}/>
 														</span>
@@ -155,6 +188,12 @@ function FilmInfo({ data: { allFilmsJson: { edges: filmDetails }} }) {
 									}
 								</FilmStreamingProviders>)
 							}
+							<p>
+								{ film.movieDescription }
+							</p>
+							<FilmCaptions>
+								<span>{ film.movieLanguage }</span>
+							</FilmCaptions>
 							<FilmCTAButtonsWrapper>
 								<CTAButton
 									onClick={() => setPlaytrailerStatus(true)}
