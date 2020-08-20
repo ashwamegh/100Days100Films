@@ -653,18 +653,25 @@ export const FilmStreamingProviders = styled.ul`
 		border: 0;
 		background: rgb(210 210 210 / 80%);
 		backdrop-filter: blur(4px);
-		height: 40px;
+		height: 52px;
+		padding: 14px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		border-radius: 5px;
 		margin-right: 10px;
 		cursor: pointer;
+		transition: display 0.5s ease-in,
+					transform 0.3s ease-in;
+
+		&:hover {
+			transform: translateY(-4px);
+		}
 	}
 
 	img {
 		max-width: 100%;
-		max-height: 20px;
+		max-height: 28px;
 	}
 `
 
