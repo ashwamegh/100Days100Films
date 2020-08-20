@@ -651,7 +651,6 @@ export const FilmStreamingProviders = styled.ul`
 	li {
 		width: 120px;
 		border: 0;
-		background: rgb(210 210 210 / 80%);
 		backdrop-filter: blur(4px);
 		height: 52px;
 		padding: 14px;
