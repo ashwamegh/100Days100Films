@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link, graphql } from 'gatsby';
-import { usePalette } from 'react-palette'
+import { usePalette } from 'react-palette';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { 
@@ -28,7 +28,6 @@ import PlayButton from './../assets/PlayButton';
 import PlayTrailer from './../components/PlayTrailer';
 
 import { ThemeContext, MovieContext } from './../store';
-import { SET_MOVIE_PROVIDERS } from './../store/types'
 
 export const query = graphql`
 	query queryMovie($movieId: Int) {
@@ -67,15 +66,17 @@ async function fetchMovieStreamingProvider(jwId) {
 function FilmInfo({ data: { allFilmsJson: { edges: filmDetails }} }) {
 	const film = filmDetails[0].node;
 	const [shouldPlayTrailer, setPlaytrailerStatus] = useState(false);
+	const [loading, setLoading] = useState(true);
 	const [movieProviders, setMovieProviders] = useState({});
-	const { data: palette, loading } = usePalette(film.moviePoster);
+	const { data: palette } = usePalette(film.moviePoster);
 	const { state } = useContext(ThemeContext);
-	const { state: movieState, dispatch } = useContext(MovieContext);
+	const { state: movieState } = useContext(MovieContext);
 	let count = 0;
 
 	useEffect(() => {
 		(async function () {
 			if(!film.jwId) {
+				setLoading(false);
 				return ;
 			}
 	
@@ -93,6 +94,7 @@ function FilmInfo({ data: { allFilmsJson: { edges: filmDetails }} }) {
 				});
 				setMovieProviders(allStreams);
 			}
+			setLoading(false);
 		})();
 	}, []);
 
@@ -167,8 +169,10 @@ function FilmInfo({ data: { allFilmsJson: { edges: filmDetails }} }) {
 									><i className="fal fa-home"></i></a>
 								</li>
 							</FilmBadges>
-							{ Object.keys(movieProviders).length > 0 &&
-								(<FilmStreamingProviders>
+							{/* If Movie Providers are available */}
+							{ Object.keys(movieProviders).length > 0 && !loading &&
+								(
+									<FilmStreamingProviders>
 									{
 										Object.keys(movieProviders).map(providerId => {
 										const provider = movieProviders[providerId];
@@ -186,7 +190,33 @@ function FilmInfo({ data: { allFilmsJson: { edges: filmDetails }} }) {
 											)
 										})
 									}
-								</FilmStreamingProviders>)
+									</FilmStreamingProviders>
+								)
+							}
+							{/* If Movie Providers are not available */}
+							{ Object.keys(movieProviders).length === 0 && !loading &&
+								(
+									<FilmStreamingProviders>
+										<span style={{ color: "#fff", fontWeight: 600 }}>Streaming providers not available</span>
+									</FilmStreamingProviders>
+								)
+							}
+							{/* If Movie Providers are loading */}
+							{ loading &&
+								(
+									<FilmStreamingProviders>
+									{
+										[1,2,3,4].map((num) => (
+											<a href={"#"} key={num}>
+												<li className="shine">
+													<span>
+													</span>
+												</li>
+											</a>
+										))
+									}
+									</FilmStreamingProviders>
+								) 
 							}
 							<p>
 								{ film.movieDescription }
