@@ -18,6 +18,7 @@ export const query = graphql`
 			edges {
 				node {
 					movieId
+					jwId
 					movieName
 					movieYear
 					moviePoster
@@ -59,7 +60,7 @@ export default function Index ({ data: { allFilmsJson: { edges: filmEdges }} }) 
 			}, loadTime);
 			window.localStorage.setItem("config", JSON.stringify({ loaded: true } ));
 			const stramingProviders = await fetchStreamingProviders();
-			const parseStreamingProviders = [];
+			const parseStreamingProviders = {};
 			stramingProviders.forEach((provdr) => parseStreamingProviders[provdr.id] = { name: provdr.clear_name, key: provdr.technical_name, logo: streamingProviders[provdr.technical_name] || "" })
 			await dispatch({ type: UPDATE_STREAMING_PROVIDERS, payload: parseStreamingProviders });
 		})();
@@ -84,6 +85,7 @@ export default function Index ({ data: { allFilmsJson: { edges: filmEdges }} }) 
 						dayWatched={filmNode["node"].dayWatched}
 						dateWatched={filmNode["node"].dateWatched}
 						movieDescription={filmNode["node"].movieDescription}
+						jwId={filmNode["node"].jwId}
 					/>)
 				}
 			</FilmsWrapper>

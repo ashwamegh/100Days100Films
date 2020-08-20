@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import { usePalette } from 'react-palette'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
@@ -28,7 +27,7 @@ import closeButtonIcon from './../assets/close-button.svg';
 import PlayButton from './../assets/PlayButton';
 import PlayTrailer from './../components/PlayTrailer';
 
-import { ThemeContext } from './../store';
+import { ThemeContext, MovieContext } from './../store';
 
 export const query = graphql`
 	query queryMovie($movieId: Int) {
@@ -46,17 +45,18 @@ export const query = graphql`
 					movieGenre
 					movieLanguage
 					movieTrailer
+					jwId
 				}
 			}
 		}
 	}
 `
-
 function FilmInfo({ data: { allFilmsJson: { edges: filmDetails }} }) {
 	const film = filmDetails[0].node;
 	const [shouldPlayTrailer, setPlaytrailerStatus] = useState(false);
 	const { data: palette, loading } = usePalette(film.moviePoster);
 	const { state } = useContext(ThemeContext);
+	const { state: movieState } = useContext(MovieContext);
 
 	return (
 		<FilmDetailsContainer>
@@ -136,20 +136,25 @@ function FilmInfo({ data: { allFilmsJson: { edges: filmDetails }} }) {
 							<FilmCaptions>
 								<span>{ film.movieLanguage }</span>
 							</FilmCaptions>
-							<FilmStreamingProviders>
-								<a href={"https://image.tmdb.org/t/p/original/4KAy34EHvRM25Ih8wb82AuGU7zJ.png"} target="_blank">
-									<li>
-										<span>
-											<img src="https://image.tmdb.org/t/p/original/4KAy34EHvRM25Ih8wb82AuGU7zJ.png" alt="Apple TV+" />
-										</span>
-									</li>
-								</a>
-								<li>
-									<span>
-										<img src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="Apple TV+" />
-									</span>
-								</li>
-							</FilmStreamingProviders>
+							{ Object.keys(movieState.movieProviders).length > 0 &&
+								(<FilmStreamingProviders>
+									{
+										Object.keys(movieState.movieProviders).map(providerId => {
+										const provider = movieState.movieProviders[providerId];
+
+											return (
+												<a href={provider.url} target="_blank" key={providerId}>
+													<li>
+														<span>
+															<img src={provider.logo} alt={provider.name}/>
+														</span>
+													</li>
+												</a>
+											)
+										})
+									}
+								</FilmStreamingProviders>)
+							}
 							<FilmCTAButtonsWrapper>
 								<CTAButton
 									onClick={() => setPlaytrailerStatus(true)}
