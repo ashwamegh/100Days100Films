@@ -1,15 +1,17 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components';
 
 import Header from './header'
+import AboutSection from './About';
 import { ThemeContext } from './../store';
 import './layout.css'
 
 const Layout = ({ children }) => {
 
 	const { state } = useContext(ThemeContext);
+	const [showAboutPage, setAboutPageVisibility] = useState(true)
 
 	const AppWrapper = styled.div`
 		max-width: 80%;
@@ -48,10 +50,23 @@ const Layout = ({ children }) => {
 			`}
 			render={data => (
 			<AppWrapper>
-				<Header siteTitle={data.site.siteMetadata.title} />
-				<div>
-				{children}
-				</div>
+			{
+				showAboutPage ?
+				(
+					<AboutSection />
+				) :
+				(
+					<>
+						<Header
+							siteTitle={data.site.siteMetadata.title}
+							toggleAboutSection={() => setAboutPageVisibility(true)}
+						/>
+						<div>
+							{children}
+						</div>
+					</>
+				)
+			}
 			</AppWrapper>
 			)}
 		/>

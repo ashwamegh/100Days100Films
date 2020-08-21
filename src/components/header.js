@@ -6,8 +6,9 @@ import AccentSwitcher from './../components/AccentSwitcher';
 import Slogan from './Slogan';
 import { HeaderWrapper, HeaderLinks } from './styled'
 
-const Header = (props) => {
+const Header = ({ toggleAboutSection }) => {
 	const { dispatch } = useContext(ThemeContext);
+	
 	const [ showAccentColors, toggleShowAccentColors ] = useState(false);
 
 	function changeTheme(color, backgroundColor) {
@@ -19,7 +20,7 @@ const Header = (props) => {
 		<HeaderWrapper>
 			<Slogan />
 			<HeaderLinks className="header-links">
-				<div className="about">
+				<div className="about" onClick={toggleAboutSection}>
 					About
 				</div>
 				<AccentSwitcher
@@ -29,15 +30,17 @@ const Header = (props) => {
 				/>
 			</HeaderLinks>
 		</HeaderWrapper>
-	  )
+	)
 }
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+	siteTitle: PropTypes.string,
+	toggleAboutSection: PropTypes.func
 }
 
 Header.defaultProps = {
-  siteTitle: '',
+	siteTitle: '',
+	toggleAboutSection: () => {}
 }
 
 export default Header

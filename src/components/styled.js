@@ -760,3 +760,14 @@ export const CTAButton = styled.button`
 		filter: brightness(1);
 	}
 `
+
+/* About Section */
+
+export const AboutSectionWrapper = styled.section`
+	min-height: 100vh;
+	width: 100%;
+
+	@media (max-width: 512px) {
+		padding: 20px;
+	}
+`
