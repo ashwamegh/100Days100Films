@@ -765,7 +765,17 @@ export const CTAButton = styled.button`
 
 export const AboutSectionWrapper = styled.section`
 	min-height: 100vh;
-	width: 100%;
+	max-width: 80%;
+	margin: 0 auto;
+
+	@media (max-width: 621px) {
+		max-width: 90%;
+	}
+
+	@media (max-width: 512px) {
+		max-width: 100%;
+		padding: 20px;
+	}
 
 	@media (max-width: 512px) {
 		padding: 20px;
