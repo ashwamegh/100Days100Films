@@ -27,6 +27,7 @@ export const SloganTextWrapper = styled.div`
 	min-height: 200px;
 	align-items: center;
 	padding: 14px;
+	font-family: "helveticaregular", Arial, sans-serif;
 
 	@media (max-width: 992px) {
 		min-height: 180px;
@@ -125,7 +126,7 @@ export const HeaderLinks = styled.div`
 	flex-direction: row;
 	font-size: 36px;
 	font-weight: bold;
-	align-items: flex-end;
+	align-items: center;
 
 	.accent-switcher {
 		margin-left: 22px;

@@ -5,7 +5,6 @@ html {
 }
 
 body {
-    font-family: "helveticaregular", Arial, sans-serif;
     font-weight: normal;
     word-wrap: break-word;
     font-kerning: normal;
@@ -71,4 +70,10 @@ p {
 	100% {
 		background-position: 468px 0; 
 	}
+}
+
+/* Overwrite React Typist style */
+
+.about-react-typist .lfm__typing_effect_text {
+	text-decoration: underline;
 }
