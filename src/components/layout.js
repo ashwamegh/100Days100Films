@@ -11,12 +11,13 @@ import './layout.css'
 const Layout = ({ children }) => {
 
 	const { state } = useContext(ThemeContext);
-	const [showAboutPage, setAboutPageVisibility] = useState(true)
+	const [showAboutPage, setAboutPageVisibility] = useState(true);
 
 	const AppWrapper = styled.div`
 		max-width: 80%;
 		min-height: 100%;
 		margin: 0 auto;
+		font-family: 'Poppins', sans-serif;
 
 		@media (max-width: 621px) {
 			max-width: 90%;
@@ -49,14 +50,12 @@ const Layout = ({ children }) => {
 			}
 			`}
 			render={data => (
-			<AppWrapper>
-			{
 				showAboutPage ?
 				(
-					<AboutSection />
+					<AboutSection toggleAboutSection={() => setAboutPageVisibility(false)}/>
 				) :
 				(
-					<>
+					<AppWrapper>
 						<Header
 							siteTitle={data.site.siteMetadata.title}
 							toggleAboutSection={() => setAboutPageVisibility(true)}
@@ -64,10 +63,8 @@ const Layout = ({ children }) => {
 						<div>
 							{children}
 						</div>
-					</>
+					</AppWrapper>
 				)
-			}
-			</AppWrapper>
 			)}
 		/>
 	)
