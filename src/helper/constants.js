@@ -22,6 +22,10 @@ export const customThemes = {
 	'Dream': {
 		color: "#e7abec",
 		backgroundColor: "#3f1366"
+	},
+	'Black & Blue': {
+		color: "#206bff",
+		backgroundColor: '#000'
 	}
 }
 
