@@ -3,20 +3,20 @@ import { RowFlex, ColumnFlex } from './styled'
 import styled from 'styled-components';
 
 const Footer = styled.footer`
+	padding: 0 10%;
 	padding-top: 7.1rem;
 	padding-bottom: 7.1rem;
-	max-width: 80%;
-	margin: 0 auto;
+	max-width: 100%;
 	font-weight: 300;
 	line-height: 1.8;
+	background: #000;
 
 	@media (max-width: 621px) {
-		max-width: 90%;
-		padding: 20px;
+		padding: 0 5%;
 	}
 
 	@media (max-width: 512px) {
-		max-width: 100%;
+		padding: 20px;
 	}
 `;
 
@@ -72,7 +72,11 @@ function FooterSection () {
 					</div>
 					<div>
 						<p style={{ marginTop: '0.8rem' }}>
-							<a href="mailto:hello@shashankshekhar.dev" title="Send me an email">
+							<a 
+								href="mailto:hello@shashankshekhar.dev"
+								title="Send me an email"
+								style={{ color: "#9f82ff" }}
+							>
 								<span>
 									hello@shashankshekhar.dev
 								</span>
