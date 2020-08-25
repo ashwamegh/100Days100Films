@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components';
 
-import Header from './header'
+import Header from './header';
+import Footer from './footer';
 import AboutSection from './About';
 import { ThemeContext } from './../store';
 import './layout.css'
@@ -55,15 +56,18 @@ const Layout = ({ children }) => {
 					<AboutSection toggleAboutSection={() => setAboutPageVisibility(false)}/>
 				) :
 				(
-					<AppWrapper>
-						<Header
-							siteTitle={data.site.siteMetadata.title}
-							toggleAboutSection={() => setAboutPageVisibility(true)}
-						/>
-						<div>
-							{children}
-						</div>
-					</AppWrapper>
+					<>
+						<AppWrapper>
+							<Header
+								siteTitle={data.site.siteMetadata.title}
+								toggleAboutSection={() => setAboutPageVisibility(true)}
+							/>
+							<div>
+								{children}
+							</div>
+						</AppWrapper>
+						<Footer />
+					</>
 				)
 			)}
 		/>
