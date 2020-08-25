@@ -5,6 +5,7 @@ import Typewriter from 'typewriter-effect';
 import { AboutSectionWrapper, HeaderWrapper, HeaderLinks, RowFlex, ColumnFlex } from './styled'
 import { ThemeContext } from './../store'
 import CloseButtonIcon from './../assets/CloseButton';
+import Footer from './../components/footer';
 
 const CloseButtonWrapper = styled.svg`
 	height: 28px;
@@ -168,6 +169,7 @@ function AboutMe ({ toggleAboutSection }) {
 					</Description>
 				</Main>
 			</AboutSectionWrapper>
+			<Footer />
 		</AppWrapper>
 	)
 }
