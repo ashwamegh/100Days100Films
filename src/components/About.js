@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import ReactTypingEffect from 'react-typing-effect';
+import Typewriter from 'typewriter-effect';
 import { AboutSectionWrapper, HeaderWrapper, HeaderLinks, RowFlex, ColumnFlex } from './styled'
 import { ThemeContext } from './../store'
 import CloseButtonIcon from './../assets/CloseButton';
@@ -142,13 +142,14 @@ function AboutMe ({ toggleAboutSection }) {
 				<Main>
 					<Headline>
 						Hey, I am Shashank. I am a &nbsp;
-						<ReactTypingEffect
-							className="about-react-typist"
-							text={["Creator", "Programmer", "Poet", "Song Writer", "Script Writer", "Loving Human"]}
-							typingDelay={300}
-							eraseDelay={300}
-							speed={300}
+						<Typewriter
+							options={{
+								strings: ["Creator", "Programmer", "Poet", "Song Writer", "Script Writer", "Loving Human"],
+								autoStart: true,
+								loop: true,
+							}}
 						/>, and you are inside my creation.
+						
 					</Headline>
 					<Description>
 						<RowFlexExtension>

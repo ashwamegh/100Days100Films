@@ -74,6 +74,10 @@ p {
 
 /* Overwrite React Typist style */
 
-.about-react-typist .lfm__typing_effect_text {
+.Typewriter {
+	display: inline-block;
+}
+
+.Typewriter .Typewriter__wrapper {
 	text-decoration: underline;
 }
