@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
 import { Link, graphql } from 'gatsby'
+import _ from 'lodash'
 
 import Layout from '../components/layout'
 import Toolbar from '../components/Toolbar'
@@ -40,10 +41,27 @@ async function fetchStreamingProviders() {
 		throw error;
 	}
 }
+function sortFilms({ order= "asc", base = null, films }) {
+	if(base) {
+		switch (base) {
+			case "customRating":
+				const sortedFilmsByCustomRating = _.orderBy(films, ['movieRating'], [order]);
+				return sortedFilmsByCustomRating;
+			default:
+				const defaultSortedFilms = _.orderBy(films, ['movieId'], ["asc"]);
+				return defaultSortedFilms;
+		}
+	} else {
+		const sortedFilms = _.orderBy(films, ['movieId'], [order]);
+		return sortedFilms;
+	}
+}
 
 export default function Index ({ data: { allFilmsJson: { edges: filmEdges }} }) {
-	// console.log(filmEdges);
 	const [loading, setLoading] = useState(true);
+	const [films, setFilms] = useState([]);
+	const [filmsOrder, setFilmsOrder] = useState("asc");
+	const [lastSortingOperation, setLastSortingOperation] = useState(null)
 	const { dispatch } = useContext(MovieContext);
 	useEffect(() => {
 		(async () => {
@@ -56,6 +74,8 @@ export default function Index ({ data: { allFilmsJson: { edges: filmEdges }} }) 
 				}
 			}
 			setTimeout(() => {
+				const parsedFilms = filmEdges.map((film) => film["node"])
+				setFilms(parsedFilms);
 				setLoading(false);
 			}, loadTime);
 			window.localStorage.setItem("config", JSON.stringify({ loaded: true } ));
@@ -72,20 +92,32 @@ export default function Index ({ data: { allFilmsJson: { edges: filmEdges }} }) 
 	(
 		<Layout>
 			<SEO title="Home" keywords={['gatsby', 'application', 'react']} />
-			<Toolbar />
+			<Toolbar
+				sortingOrder={filmsOrder}
+				onChangeOfOrder={(order) => {
+					setFilmsOrder(order);
+					const orderedFilms = sortFilms({ order, base: lastSortingOperation, films });
+					setFilms(orderedFilms);
+				}}
+				onSorting={(sel) => {
+					setLastSortingOperation(sel)
+					const sortedFilms = sortFilms({ order: filmsOrder, base: sel, films });
+					setFilms(sortedFilms);
+				}}
+			/>
 			<FilmsWrapper>
-				{ filmEdges.map(filmNode => 
+				{ films.map(filmNode => 
 					<FilmItem 
-						key={filmNode["node"].movieId}
-						movieId={filmNode["node"].movieId}
-						moviePoster={filmNode["node"].moviePoster}
-						movieName={filmNode["node"].movieName}
-						movieYear={filmNode["node"].movieYear}
-						movieRating={filmNode["node"].movieRating}
-						dayWatched={filmNode["node"].dayWatched}
-						dateWatched={filmNode["node"].dateWatched}
-						movieDescription={filmNode["node"].movieDescription}
-						jwId={filmNode["node"].jwId}
+						key={filmNode.movieId}
+						movieId={filmNode.movieId}
+						moviePoster={filmNode.moviePoster}
+						movieName={filmNode.movieName}
+						movieYear={filmNode.movieYear}
+						movieRating={filmNode.movieRating}
+						dayWatched={filmNode.dayWatched}
+						dateWatched={filmNode.dateWatched}
+						movieDescription={filmNode.movieDescription}
+						jwId={filmNode.jwId}
 					/>)
 				}
 			</FilmsWrapper>
