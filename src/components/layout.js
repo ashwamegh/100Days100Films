@@ -9,7 +9,7 @@ import AboutSection from './About';
 import { ThemeContext } from './../store';
 import './layout.css'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, withAppWrapper = true }) => {
 
 	const { state } = useContext(ThemeContext);
 	const [showAboutPage, setAboutPageVisibility] = useState(false);
@@ -57,15 +57,32 @@ const Layout = ({ children }) => {
 				) :
 				(
 					<>
-						<AppWrapper>
-							<Header
-								siteTitle={data.site.siteMetadata.title}
-								toggleAboutSection={() => setAboutPageVisibility(true)}
-							/>
-							<div>
-								{children}
-							</div>
-						</AppWrapper>
+					{
+						withAppWrapper ?
+						(
+							<AppWrapper>
+								<Header
+									siteTitle={data.site.siteMetadata.title}
+									toggleAboutSection={() => setAboutPageVisibility(true)}
+								/>
+								<div>
+									{children}
+								</div>
+							</AppWrapper>
+						) :
+						(
+							<>
+								<Header
+									siteTitle={data.site.siteMetadata.title}
+									toggleAboutSection={() => setAboutPageVisibility(true)}
+								/>
+								<div>
+									{children}
+								</div>
+							</>
+						)
+					}
+						
 						<Footer />
 					</>
 				)
@@ -76,6 +93,7 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  withAppWrapper: PropTypes.bool
 }
 
 export default Layout
