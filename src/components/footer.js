@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const Footer = styled.footer`
 	padding: 0 10%;
+	margin-top: 4rem;
 	padding-top: 7.1rem;
 	padding-bottom: 7.1rem;
 	max-width: 100%;
@@ -67,7 +68,7 @@ function FooterSection () {
 						<p>
 							<WhiteText>Shashank Shekhar</WhiteText>
 							<br />
-							<span style={{ color: '#7c7c7c' }}>Engineered turned creator</span>
+							<span style={{ color: '#7c7c7c' }}>Engineer turned creator</span>
 						</p>
 					</div>
 					<div>
