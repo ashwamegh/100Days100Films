@@ -12,7 +12,7 @@ import './layout.css'
 const Layout = ({ children }) => {
 
 	const { state } = useContext(ThemeContext);
-	const [showAboutPage, setAboutPageVisibility] = useState(true);
+	const [showAboutPage, setAboutPageVisibility] = useState(false);
 
 	const AppWrapper = styled.div`
 		max-width: 80%;
