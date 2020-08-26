@@ -24,6 +24,7 @@ export const query = graphql`
 					movieYear
 					moviePoster
 					movieRating
+					imdbRating
 					movieDescription
 					dayWatched
 					dateWatched
@@ -47,6 +48,15 @@ function sortFilms({ order= "asc", base = null, films }) {
 			case "customRating":
 				const sortedFilmsByCustomRating = _.orderBy(films, ['movieRating'], [order]);
 				return sortedFilmsByCustomRating;
+			case "imdbRating":
+				const sortedFilmsByImdbRating = _.orderBy(films, ['imdbRating'], [order]);
+				return sortedFilmsByImdbRating;
+			case "movieYear":
+				const sortedFilmsByMovieYear = _.orderBy(films, ['movieYear'], [order]);
+				return sortedFilmsByMovieYear;
+			case "dateWatched":
+				const sortedFilmsByWatchedDate = _.orderBy(films, ['dateWatched'], [order]);
+				return sortedFilmsByWatchedDate;
 			default:
 				const defaultSortedFilms = _.orderBy(films, ['movieId'], ["asc"]);
 				return defaultSortedFilms;

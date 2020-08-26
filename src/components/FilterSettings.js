@@ -115,7 +115,7 @@ function FilterSettings ({ onFilterSelect }) {
 						</FilterSettingsOption>
 						<FilterSettingsOption
 							style={{ color: state.backgroundColor || '#000' }}
-							onClick={() => onSelect("watchDate")}
+							onClick={() => onSelect("dateWatched")}
 						>
 							Sort by Watch Date
 						</FilterSettingsOption>
@@ -127,7 +127,7 @@ function FilterSettings ({ onFilterSelect }) {
 						</FilterSettingsOption>
 						<FilterSettingsOption
 							style={{ color: state.backgroundColor || '#000' }}
-							onClick={() => onSelect("releaseYear")}
+							onClick={() => onSelect("movieYear")}
 						>
 							Sort by Release Year
 						</FilterSettingsOption>
