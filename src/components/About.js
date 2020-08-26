@@ -156,11 +156,11 @@ function AboutMe ({ toggleAboutSection }) {
 						<RowFlexExtension>
 							<ColumnFlexExtension>
 								<p>It was year <strong>2020</strong>, when the world was facing pandemic, caused by <strong>Coronavirus Disease (COVID-19)</strong>.
-								To face this pandemic situation, <strong>lockdowns</strong> been organized all over the world to stop the <strong>spread</strong> of the virus.</p>
+								To control this pandemic situation, <strong>lockdowns</strong> been organized all over the world to stop the <strong>spread</strong> of the virus.</p>
 								<br/>
 								<p>Being in the lockdown in <strong>India</strong>, Shashank got bored due to life's <strong>monotonicity</strong>. So one day, while he was browsing his movies <strong>watchlist</strong>, he thought of watching those movies in straight <strong>100 days</strong>.</p>
 								<br/>
-								<p>So folks, that is it, and called <strong>100 days 100 films</strong> (actually its more than 100). The movies in this website are from Shashank's watchlist and some movies got wild card.</p>
+								<p>So folks, that is it, and called <strong>100 days 100 films</strong> (actually its more than 100). The movies in this website are from Shashank's watchlist and some movies got wild card entry.</p>
 								<br/>
 								<p>These are some of the best movies of the till now. If you like the movies listed here, do <strong>share</strong> it to others, so they know your taste :)</p>
 							</ColumnFlexExtension>
