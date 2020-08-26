@@ -63,9 +63,9 @@ function FilterSettings ({ onFilterSelect }) {
 		setOpen(false);
 	};
 
-	function onSelect() {
+	function onSelect(sel) {
 		setOpen(false);
-		onFilterSelect();
+		onFilterSelect(sel);
 	}
 
 	useEffect(() => {
@@ -107,43 +107,30 @@ function FilterSettings ({ onFilterSelect }) {
 								borderBottomColor: state.color || '#cfd8db'
 							}}
 						/>
-						<FilterSettingsOption style={{ color: state.backgroundColor || '#000' }}>
+						<FilterSettingsOption 
+							style={{ color: state.backgroundColor || '#000' }}
+							onClick={() => onSelect("customRating")}
+						>
 							Sort by My Rating
 						</FilterSettingsOption>
-						<FilterSettingsOption style={{ color: state.backgroundColor || '#000' }}>
+						<FilterSettingsOption
+							style={{ color: state.backgroundColor || '#000' }}
+							onClick={() => onSelect("watchDate")}
+						>
 							Sort by Watch Date
 						</FilterSettingsOption>
-						<FilterSettingsOption style={{ color: state.backgroundColor || '#000' }}>
+						<FilterSettingsOption
+							style={{ color: state.backgroundColor || '#000' }}
+							onClick={() => onSelect("imdbRating")}
+						>
 							Sort by IMDB Rating
 						</FilterSettingsOption>
-						<FilterSettingsOption style={{ color: state.backgroundColor || '#000' }}>
+						<FilterSettingsOption
+							style={{ color: state.backgroundColor || '#000' }}
+							onClick={() => onSelect("releaseYear")}
+						>
 							Sort by Release Year
 						</FilterSettingsOption>
-						{/* {
-							Object.keys(customThemes).map((theme, index) => {
-								const primaryAccentColor = customThemes[theme].backgroundColor;
-								const secondaryAccentColor = customThemes[theme].color;
-								return(
-									<div
-										className="accent-switcher-color-item"
-										key={index}
-										onClick={() => onFilterSelect(secondaryAccentColor, primaryAccentColor)}
-										style={{
-											width: 28,
-											height: 28,
-											background: `linear-gradient( -45deg, ${secondaryAccentColor}, ${secondaryAccentColor} 49%, white 49%, white 51%, ${primaryAccentColor} 51% )`,
-											borderRadius: '50%',
-											margin: '2px 0px',
-											transform: 'scale(0.8)',
-											transition: '0.3s transform ease-in',
-											boxShadow: '0px 0px 12px 1px rgba(0, 0, 0, 0.1)'
-										}}
-									>
-									</div>
-								)
-							})
-						} */}
-
 					</FilterSettingsContainer>
 				)
 			}
