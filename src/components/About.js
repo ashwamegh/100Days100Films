@@ -78,11 +78,18 @@ const MyImage = styled.img`
 	max-width: 370px;
 	object-fit: cover;
 	border-radius: 1.3rem;
+	filter: grayscale(100%);
+	cursor: pointer;
+	transition: filter 0.2s ease-in;
 
 	@media(max-width: 767px) {
 		width: 100%;
 		height: auto;
 		max-width: unset;
+	}
+
+	&:hover{
+		filter: none;
 	}
 `
 
