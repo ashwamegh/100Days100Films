@@ -16,7 +16,6 @@ const PopoverArrowUpExtended = styled(PopoverArrowUp)`
 `
 const SvgContainer = styled.div`
 	cursor: pointer;
-	box-shadow: 0 0px 12px 1px rgba(0,0,0,0.1);
 `
 const FilterSettingsContainer = styled.div`
 	display: flex;
