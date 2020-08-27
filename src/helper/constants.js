@@ -3,29 +3,42 @@ export const customThemes = {
 		backgroundColor: "#fff",
 		color: "#000"
 	},
-	'Burn Out': {
-		backgroundColor: "#FCD215",
-		color: "#000"
-	},
 	'White & Black': {
 		color: "#fff",
 		backgroundColor: "#000"
 	},
-	'Reverse Burn Out': {
+	'Burn Out': {
 		color: "#FCD215",
 		backgroundColor: "#000"
 	},
-	'Red & Yellow': {
-		color: "red",
-		backgroundColor: "yellow"
-	},
-	'Dream': {
-		color: "#e7abec",
-		backgroundColor: "#3f1366"
-	},
-	'Black & Blue': {
+	'Grey & Blue': {
 		color: "#206bff",
-		backgroundColor: '#000'
+		backgroundColor: '#f2f2f2'
+	},
+	'CowGirl': {
+		color: '#fa255e',
+		backgroundColor: '#f2f2f2'
+	},
+	'QED': {
+		color: '#3fb0ac',
+		backgroundColor: '#fae596'
+	},
+	'ReverseQED': {
+		color: '#fae596',
+		backgroundColor: '#173e43'
+	},
+	'EarthTone': {
+		color: '#c19434',
+		backgroundColor: '#f1f1ef' 
+	},
+	'MutedRed': {
+		color: '#fff',
+		backgroundColor: '#fa292a'
+	},
+	'FuturisticPastels': {
+		color: '#431c5d',
+		backgroundColor: '#fae596'
+		// #e05915
 	}
 }
 
