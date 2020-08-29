@@ -5,8 +5,10 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gorilla/mux"
+	_ "github.com/heroku/x/hmetrics/onload"
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
@@ -40,8 +42,35 @@ func movieDetailsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		log.Fatal("$PORT must be set")
+	}
+
 	r := mux.NewRouter()
 	r.HandleFunc("/health", helloHandler).Methods("GET")
 	r.HandleFunc("/movie/{id}", movieDetailsHandler).Methods("GET")
-	http.ListenAndServe(":8080", r)
+
+	prefixedPort := fmt.Sprintf(":%v", port)
+	http.ListenAndServe(prefixedPort, r)
 }
+
+// func main() {
+// 	port := os.Getenv("PORT")
+
+// 	if port == "" {
+// 		log.Fatal("$PORT must be set")
+// 	}
+
+// 	router := gin.New()
+// 	router.Use(gin.Logger())
+// 	router.LoadHTMLGlob("templates/*.tmpl.html")
+// 	router.Static("/static", "static")
+
+// 	router.GET("/", func(c *gin.Context) {
+// 		c.HTML(http.StatusOK, "index.tmpl.html", nil)
+// 	})
+
+// 	router.Run(":" + port)
+// }
