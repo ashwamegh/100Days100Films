@@ -206,5 +206,21 @@
 		"movieTrailer": "https://youtu.be/OXrcDonY-B8",
 		"jwId": "127410",
 		"movieId": 13
+	},
+	{
+		"moviePoster": "https://res.cloudinary.com/ashwamegh/image/upload/v1596470973/100Days100Films/One_Flew_Over_the_Cuckoo_s_Nest_1976_1280_x_1829_joyvfs.jpg",
+		"movieName": "Gravity",
+		"movieYear": 2013,
+		"movieRating": 4.4,
+		"dayWatched": "12",
+		"dateWatched": "17.06.20",
+		"movieDescription": "Two astronauts work together to survive after an accident leaves them stranded in space.",
+		"imdbRating": 7.7,
+		"imdbLink": "https://www.imdb.com/title/tt0073486",
+		"movieGenre": "Drama",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/OiTiKOy59o4",
+		"jwId": "127410",
+		"movieId": 14
 	}
 ]
