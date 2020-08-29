@@ -17,6 +17,8 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func movieDetailsHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+
 	vars := mux.Vars(r)
 	url := fmt.Sprintf("https://apis.justwatch.com/content/titles/movie/%v/locale/en_IN?language=en", vars["id"])
 
@@ -52,6 +54,7 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/health", helloHandler).Methods("GET")
 	r.HandleFunc("/movie/{id}", movieDetailsHandler).Methods("GET")
+	r.Use(mux.CORSMethodMiddleware(r))
 
 	prefixedPort := fmt.Sprintf(":%v", port)
 	http.ListenAndServe(prefixedPort, r)
