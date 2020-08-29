@@ -43,6 +43,7 @@ func movieDetailsHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	port := os.Getenv("PORT")
+	// port := "5000"
 
 	if port == "" {
 		log.Fatal("$PORT must be set")
