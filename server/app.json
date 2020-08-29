@@ -1,0 +1,11 @@
+{
+	"name": "100Days100FilmsAPI",
+	"description": "Server for 100days100films",
+	"keywords": [
+		"go",
+		"movie-api",
+		"100-days-100-films"
+	],
+	"website": "https://100Days100Films.com",
+	"repository": "https://github.com/ashwamegh/100Days100Films"
+}
