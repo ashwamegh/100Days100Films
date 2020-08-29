@@ -8,7 +8,7 @@ const initialState = {
 		"3": {
 			"name": "Google Play Movies",
 			"key": "play",
-			"logo": "https://res.cloudinary.com/ashwamegh/image/upload/v1597876158/StreamingProviders/playmovies_dle3ot.jpg"
+			"logo": "https://res.cloudinary.com/ashwamegh/image/upload/v1597930057/StreamingProviders/playmovies_su34x8.png"
 		},
 		"8": {
 			"name": "Netflix",
@@ -63,7 +63,7 @@ const initialState = {
 		"192": {
 			"name": "YouTube",
 			"key": "youtube",
-			"logo": "https://res.cloudinary.com/ashwamegh/image/upload/v1597876159/StreamingProviders/youtube_khzlls.png"
+			"logo": "https://res.cloudinary.com/ashwamegh/image/upload/v1597876159/StreamingProviders/youtube_aslrrc.png"
 		},
 		"218": {
 			"name": "Eros Now",
@@ -78,7 +78,7 @@ const initialState = {
 		"232": {
 			"name": "Zee5",
 			"key": "zee5",
-			"logo": "https://res.cloudinary.com/ashwamegh/image/upload/v1597876159/StreamingProviders/zee5_pajzwa.png"
+			"logo": "https://res.cloudinary.com/ashwamegh/image/upload/v1597876159/StreamingProviders/zee5_j4iaqa.png"
 		},
 		"237": {
 			"name": "Sony Liv",
