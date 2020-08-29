@@ -54,7 +54,7 @@ export const query = graphql`
 
 async function fetchMovieStreamingProvider(jwId) {
 	try {
-		const response = await fetch(`https://apis.justwatch.com/content/titles/movie/${jwId}/locale/en_IN?language=en`);
+		const response = await fetch(`https://i00days100films.herokuapp.com/movie/${jwId}`);
 		const responseData = await response.json();
 		return responseData;
 	} catch (error) {
@@ -85,10 +85,14 @@ function FilmInfo({ data: { allFilmsJson: { edges: filmDetails }} }) {
 				const allStreams = {};
 				offers.forEach((offer) => {
 					if(!Object.prototype.hasOwnProperty.call(allStreams, offer.provider_id)) {
-						allStreams[offer.provider_id] = {
-							url: offer.urls.standard_web || "",
-							logo: movieState.streamingProviders[offer.provider_id].logo,
-							name: movieState.streamingProviders[offer.provider_id].name
+						try {
+							allStreams[offer.provider_id] = {
+								url: offer.urls.standard_web || "",
+								logo: movieState.streamingProviders[offer.provider_id].logo,
+								name: movieState.streamingProviders[offer.provider_id].name
+							}
+						} catch (error) {
+							console.log("Error while setting providers, with provider id", JSON.stringify(offer))
 						}
 					}
 				});
