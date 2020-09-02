@@ -650,6 +650,10 @@ export const FilmStreamingProviders = styled.ul`
 	align-content: center;
 	padding: 10px 0!important;
 
+	@media (max-width: 767px) {
+		flex-wrap: wrap;
+	}
+
 	li {
 		width: 120px;
 		border: 0;
@@ -667,6 +671,14 @@ export const FilmStreamingProviders = styled.ul`
 
 		&:hover {
 			transform: translateY(-4px);
+		}
+
+		@media (max-width: 767px) {
+			margin: 4px;
+		}
+
+		@media (max-width: 347px) {
+			width: 100px;
 		}
 	}
 
