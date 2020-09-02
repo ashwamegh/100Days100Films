@@ -1571,6 +1571,74 @@
 		"movieTrailer": "https://youtu.be/sE8hc4gVyGo",
 		"jwId": "143861",
 		"movieId": 94
+	},
+
+	{
+		"moviePoster": "https://res.cloudinary.com/ashwamegh/image/upload/v1599052628/100Days100Films/American_Gangster_2007_-_IMDb_gm3aw8.jpg",
+		"movieName": "American Gangster",
+		"movieYear": 2007,
+		"movieRating": 4.8,
+		"dayWatched": "87",
+		"dateWatched": "31.08.20",
+		"movieDescription": "An outcast New York City cop is charged with bringing down Harlem drug lord Frank Lucas, whose real life inspired this partly biographical film.",
+		"imdbRating": 7.8,
+		"imdbLink": "https://www.imdb.com/title/tt0765429",
+		"movieGenre": "Biography, Crime, Drama, Thriller",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/BV_nssS6Zkg",
+		"jwId": "84751",
+		"movieId": 95
+	},
+
+	{
+		"moviePoster": "https://res.cloudinary.com/ashwamegh/image/upload/v1599052629/100Days100Films/amadeus_sgguwf.jpg",
+		"movieName": "Amadeus",
+		"movieYear": 1984,
+		"movieRating": 4.9,
+		"dayWatched": "88",
+		"dateWatched": "01.09.20",
+		"movieDescription": "The life, success and troubles of Wolfgang Amadeus Mozart, as told by Antonio Salieri, the contemporaneous composer who was insanely jealous of Mozart's talent and claimed to have murdered him.",
+		"imdbRating": 8.3,
+		"imdbLink": "https://www.imdb.com/title/tt0086879",
+		"movieGenre": "Biography, Drama, History, Music",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/r7kWQj9FCGY",
+		"jwId": "175246",
+		"movieId": 96
+	},
+
+	{
+		"moviePoster": "https://res.cloudinary.com/ashwamegh/image/upload/v1599052629/100Days100Films/serpico_vucpfo.jpg",
+		"movieName": "Serpico",
+		"movieYear": 1973,
+		"movieRating": 4.7,
+		"dayWatched": "88",
+		"dateWatched": "01.09.20",
+		"movieDescription": "An honest New York cop named Frank Serpico blows the whistle on rampant corruption in the force only to have his comrades turn against him.",
+		"imdbRating": 7.7,
+		"imdbLink": "https://www.imdb.com/title/tt0070666",
+		"movieGenre": "Biography, Crime, Drama, Thriller",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/nBJQ1pK372Q",
+		"jwId": "",
+		"movieId": 97
+	},
+
+	{
+		"moviePoster": "https://res.cloudinary.com/ashwamegh/image/upload/v1599052629/100Days100Films/Lawrence_of_Arabia_1962_1899x2912_Resorted_poster_zeb8sv.jpg",
+		"movieName": "Lawrence of Arabia",
+		"movieYear": 1962,
+		"movieRating": 4.5,
+		"dayWatched": "89",
+		"dateWatched": "02.09.20",
+		"movieDescription": "The story of T.E. Lawrence, the English officer who successfully united and led the diverse, often warring, Arab tribes during World War I in order to fight the Turks.",
+		"imdbRating": 8.3,
+		"imdbLink": "https://www.imdb.com/title/tt0056172",
+		"movieGenre": "Adventure, Biography, Drama, History, War",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/vOlRhGEhG7k",
+		"jwId": "10529",
+		"movieId": 98
 	}
 	
 ]
