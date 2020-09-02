@@ -569,6 +569,7 @@ export const FilmPosterWrapper = styled(ColumnFlex)`
 	z-index: 1;
 	justify-content: flex-end;
 	flex-basis: 300px;
+	min-width: 300px;
 
 	@media (max-width: 638px) {
 		flex: 1;
