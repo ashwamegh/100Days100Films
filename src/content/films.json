@@ -1639,6 +1639,177 @@
 		"movieTrailer": "https://youtu.be/vOlRhGEhG7k",
 		"jwId": "10529",
 		"movieId": 98
+	},
+
+	{
+		"moviePoster": "https://res.cloudinary.com/ashwamegh/image/upload/v1599653750/100Days100Films/malxolm-x_djsxdw.jpg",
+		"movieName": "Malcolm X",
+		"movieYear": 1992,
+		"movieRating": 4.5,
+		"dayWatched": "89",
+		"dateWatched": "02.09.20",
+		"movieDescription": "Biographical epic of the controversial and influential Black Nationalist leader, from his early life and career as a small-time gangster, to his ministry as a member of the Nation of Islam.",
+		"imdbRating": 7.7,
+		"imdbLink": "https://www.imdb.com/title/tt0104797",
+		"movieGenre": "Biography, Drama, History",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/sx4sEvhYeVE",
+		"jwId": "",
+		"movieId": 99
+	},
+
+	{
+		"moviePoster": "https://res.cloudinary.com/ashwamegh/image/upload/v1599653751/100Days100Films/the-green-mile_aifbnh.jpg",
+		"movieName": "The Green Mile",
+		"movieYear": 1999,
+		"movieRating": 4.6,
+		"dayWatched": "90",
+		"dateWatched": "03.09.20",
+		"movieDescription": "The lives of guards on Death Row are affected by one of their charges: a black man accused of child murder and rape, yet who has a mysterious gift.",
+		"imdbRating": 8.6,
+		"imdbLink": "https://www.imdb.com/title/tt0120689",
+		"movieGenre": "Crime, Drama, Fantasy, Mystery",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/Ki4haFrqSrw",
+		"jwId": "54285",
+		"movieId": 100
+	},
+
+
+	{
+		"moviePoster": "https://res.cloudinary.com/ashwamegh/image/upload/v1599653751/100Days100Films/Saving_Private_Ryan_ailwkr.jpg",
+		"movieName": "Saving Private Ryan",
+		"movieYear": 1998,
+		"movieRating": 4.8,
+		"dayWatched": "90",
+		"dateWatched": "03.09.20",
+		"movieDescription": "Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action.",
+		"imdbRating": 8.6,
+		"imdbLink": "https://www.imdb.com/title/tt0120815",
+		"movieGenre": "Drama, War",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/zwhP5b4tD6g",
+		"jwId": "57554",
+		"movieId": 101
+	},
+
+	{
+		"moviePoster": "https://res.cloudinary.com/ashwamegh/image/upload/v1599653750/100Days100Films/jfk_hgrwvh.jpg",
+		"movieName": "JFK",
+		"movieYear": 1991,
+		"movieRating": 4.7,
+		"dayWatched": "91",
+		"dateWatched": "04.09.20",
+		"movieDescription": "New Orleans District Attorney Jim Garrison discovers there's more to the Kennedy assassination than the official story.",
+		"imdbRating": 8.0,
+		"imdbLink": "https://www.imdb.com/title/tt0102138",
+		"movieGenre": "Drama, History, Thriller",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/w16bYZ-4nmE",
+		"jwId": "8654",
+		"movieId": 102
+	},
+
+	{
+		"moviePoster": "https://res.cloudinary.com/ashwamegh/image/upload/v1599653751/100Days100Films/the-shawshank-redemption_idh8so.jpg",
+		"movieName": "The Shawshank Redemption",
+		"movieYear": 1994,
+		"movieRating": 4.8,
+		"dayWatched": "91",
+		"dateWatched": "04.09.20",
+		"movieDescription": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+		"imdbRating": 9.3,
+		"imdbLink": "https://www.imdb.com/title/tt0111161",
+		"movieGenre": "Drama",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/NmzuHjWmXOc",
+		"jwId": "119206",
+		"movieId": 103
+	},
+
+	{
+		"moviePoster": "https://res.cloudinary.com/ashwamegh/image/upload/v1599653749/100Days100Films/Chaplin_xs1kcq.jpg",
+		"movieName": "Chaplin",
+		"movieYear": 1992,
+		"movieRating": 4.6,
+		"dayWatched": "92",
+		"dateWatched": "05.09.20",
+		"movieDescription": "A film about the troubled and controversial life of the master comedy filmmaker Charles Chaplin.",
+		"imdbRating": 7.6,
+		"imdbLink": "https://www.imdb.com/title/tt0103939",
+		"movieGenre": "Biography, Comedy, Drama",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/8UAy9ynS-l4",
+		"jwId": "",
+		"movieId": 104
+	},
+
+	{
+		"moviePoster": "https://res.cloudinary.com/ashwamegh/image/upload/v1599653750/100Days100Films/les-miserables_apanvv.jpg",
+		"movieName": "Les Misérables",
+		"movieYear": 2012,
+		"movieRating": 4.7,
+		"dayWatched": "93",
+		"dateWatched": "06.09.20",
+		"movieDescription": "In 19th-century France, Jean Valjean, who for decades has been hunted by the ruthless policeman Javert after breaking parole, agrees to care for a factory worker's daughter. The decision changes their lives forever.",
+		"imdbRating": 7.6,
+		"imdbLink": "https://www.imdb.com/title/tt1707386",
+		"movieGenre": "Drama, History, Musical, Romance, War",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/YmvHzCLP6ug",
+		"jwId": "32982",
+		"movieId": 105
+	},
+
+	{
+		"moviePoster": "https://res.cloudinary.com/ashwamegh/image/upload/v1599653750/100Days100Films/Donnie_Brasco_adap3s.jpg",
+		"movieName": "Donnie Brasco",
+		"movieYear": 1997,
+		"movieRating": 4.8,
+		"dayWatched": "94",
+		"dateWatched": "07.09.20",
+		"movieDescription": "An FBI undercover agent infiltrates the mob and finds himself identifying more with the mafia life, at the expense of his regular one.",
+		"imdbRating": 7.7,
+		"imdbLink": "https://www.imdb.com/title/tt0119008",
+		"movieGenre": "Biography, Crime, Drama",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/ilJ_ROLClZQ",
+		"jwId": "191989",
+		"movieId": 106
+	},
+
+	{
+		"moviePoster": "https://res.cloudinary.com/ashwamegh/image/upload/v1599653750/100Days100Films/hacksaw-ridge_cjo8aw.jpg",
+		"movieName": "Hacksaw Ridge",
+		"movieYear": 2016,
+		"movieRating": 4.8,
+		"dayWatched": "95",
+		"dateWatched": "08.09.20",
+		"movieDescription": "World War II American Army Medic Desmond T. Doss, who served during the Battle of Okinawa, refuses to kill people, and becomes the first man in American history to receive the Medal of Honor without firing a shot.",
+		"imdbRating": 8.1,
+		"imdbLink": "https://www.imdb.com/title/tt2119532",
+		"movieGenre": "Biography, Drama, History, War",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/s2-1hz1juBI",
+		"jwId": "196552",
+		"movieId": 107
+	},
+
+	{
+		"moviePoster": "https://res.cloudinary.com/ashwamegh/image/upload/v1599653751/100Days100Films/the-last-king-of-scotland_dhrma9.jpg",
+		"movieName": "The Last King of Scotland",
+		"movieYear": 2006,
+		"movieRating": 4.2,
+		"dayWatched": "96",
+		"dateWatched": "09.09.20",
+		"movieDescription": "Based on the events of the brutal Ugandan dictator Idi Amin's regime as seen by his personal physician during the 1970s.",
+		"imdbRating": 7.7,
+		"imdbLink": "https://www.imdb.com/title/tt0455590",
+		"movieGenre": "Biography, Drama, History, Thriller",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/R_W7PC6NnN4",
+		"jwId": "37463",
+		"movieId": 108
 	}
-	
+
 ]
