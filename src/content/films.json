@@ -1810,6 +1810,160 @@
 		"movieTrailer": "https://youtu.be/R_W7PC6NnN4",
 		"jwId": "37463",
 		"movieId": 108
+	},
+
+	{
+		"moviePoster": "",
+		"movieName": "Pride and Prejudice",
+		"movieYear": 2006,
+		"movieRating": 4.2,
+		"dayWatched": "96",
+		"dateWatched": "09.09.20",
+		"movieDescription": "",
+		"imdbRating": 7.7,
+		"imdbLink": "https://www.imdb.com/title/",
+		"movieGenre": "",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/R_W7PC6NnN4",
+		"jwId": "173412",
+		"movieId": 109
+	},
+
+	{
+		"moviePoster": "",
+		"movieName": "Ben-Hur",
+		"movieYear": 2006,
+		"movieRating": 4.2,
+		"dayWatched": "97",
+		"dateWatched": "09.09.20",
+		"movieDescription": "",
+		"imdbRating": 7.7,
+		"imdbLink": "https://www.imdb.com/title/",
+		"movieGenre": "",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/R_W7PC6NnN4",
+		"jwId": "42704",
+		"movieId": 110
+	},
+
+	{
+		"moviePoster": "",
+		"movieName": "All that Jazz",
+		"movieYear": 2006,
+		"movieRating": 3.8,
+		"dayWatched": "97",
+		"dateWatched": "09.09.20",
+		"movieDescription": "",
+		"imdbRating": 7.7,
+		"imdbLink": "https://www.imdb.com/title/",
+		"movieGenre": "",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/R_W7PC6NnN4",
+		"jwId": "69429",
+		"movieId": 111
+	},
+
+	{
+		"moviePoster": "",
+		"movieName": "Capote",
+		"movieYear": 2006,
+		"movieRating": 4.4,
+		"dayWatched": "98",
+		"dateWatched": "09.09.20",
+		"movieDescription": "",
+		"imdbRating": 7.7,
+		"imdbLink": "https://www.imdb.com/title/",
+		"movieGenre": "",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/R_W7PC6NnN4",
+		"jwId": "168017",
+		"movieId": 112
+	},
+
+	{
+		"moviePoster": "",
+		"movieName": "8 mile",
+		"movieYear": 2006,
+		"movieRating": 4.6,
+		"dayWatched": "98",
+		"dateWatched": "09.09.20",
+		"movieDescription": "",
+		"imdbRating": 7.7,
+		"imdbLink": "https://www.imdb.com/title/",
+		"movieGenre": "",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/R_W7PC6NnN4",
+		"jwId": "",
+		"movieId": 113
+	},
+
+	{
+		"moviePoster": "",
+		"movieName": "Remember the Titans",
+		"movieYear": 2006,
+		"movieRating": 4.6,
+		"dayWatched": "99",
+		"dateWatched": "09.09.20",
+		"movieDescription": "",
+		"imdbRating": 7.7,
+		"imdbLink": "https://www.imdb.com/title/",
+		"movieGenre": "",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/R_W7PC6NnN4",
+		"jwId": "",
+		"movieId": 114
+	},
+
+	{
+		"moviePoster": "",
+		"movieName": "The Secret Life of Walter Mitty",
+		"movieYear": 2006,
+		"movieRating": 4.6,
+		"dayWatched": "99",
+		"dateWatched": "09.09.20",
+		"movieDescription": "",
+		"imdbRating": 7.7,
+		"imdbLink": "https://www.imdb.com/title/",
+		"movieGenre": "",
+		"movieLanguage": "EN",
+		"movieTrailer": "https://youtu.be/R_W7PC6NnN4",
+		"jwId": "",
+		"movieId": 115
+	},
+
+	{
+		"moviePoster": "",
+		"movieName": "Sholay",
+		"movieYear": 2006,
+		"movieRating": 4.8,
+		"dayWatched": "100",
+		"dateWatched": "09.09.20",
+		"movieDescription": "",
+		"imdbRating": 7.7,
+		"imdbLink": "https://www.imdb.com/title/",
+		"movieGenre": "",
+		"movieLanguage": "HI",
+		"movieTrailer": "https://youtu.be/R_W7PC6NnN4",
+		"jwId": "",
+		"movieId": 116
+	},
+
+	{
+		"moviePoster": "",
+		"movieName": "The Prestige",
+		"movieYear": 2006,
+		"movieRating": 5.0,
+		"dayWatched": "100",
+		"dateWatched": "09.09.20",
+		"movieDescription": "",
+		"imdbRating": 7.7,
+		"imdbLink": "https://www.imdb.com/title/",
+		"movieGenre": "",
+		"movieLanguage": "HI",
+		"movieTrailer": "https://youtu.be/R_W7PC6NnN4",
+		"jwId": "",
+		"movieId": 117
 	}
+
 
 ]
