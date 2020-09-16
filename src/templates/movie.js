@@ -170,7 +170,6 @@ function FilmInfo({ data: { allFilmsJson: { edges: filmDetails }} }) {
 											href="https://tv.apple.com/show/little-america/umc.cmc.2ice8mlcn1zrtxf81e5ktwg8p"
 											target="_blank"
 											className="button button--link"
-											rel="noopener noreferrer"
 										><i className="fal fa-home"></i></a>
 									</li>
 								</FilmBadges>
