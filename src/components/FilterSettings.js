@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState, useContext } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components';
 
-import { customThemes } from './../helper/constants';
 import { ThemeContext } from './../store';
 // import './AccentSwitcher.css';
 import { PopoverArrowUp } from './styled'
