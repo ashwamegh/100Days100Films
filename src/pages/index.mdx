@@ -55,7 +55,18 @@ function sortFilms({ order= "asc", base = null, films }) {
 				const sortedFilmsByMovieYear = _.orderBy(films, ['movieYear'], [order]);
 				return sortedFilmsByMovieYear;
 			case "dateWatched":
-				const sortedFilmsByWatchedDate = _.orderBy(films, ['dateWatched'], [order]);
+				const stringifiedFilms = JSON.parse(JSON.stringify(films))
+				const timestampedFilms = stringifiedFilms.map((film) => {
+					if(typeof film.dateWatched === "number") return film;
+					let unformattedDate = film.dateWatched.split('.');
+					const month = unformattedDate[0];
+					unformattedDate[0] = unformattedDate[1];
+					unformattedDate[1] = month;
+					const timestamp = (new Date(unformattedDate.join('.')).getTime())/1000;
+					film.dateWatched = timestamp;
+					return film;
+				})
+				const sortedFilmsByWatchedDate = _.orderBy(timestampedFilms, ['dateWatched'], [order]);
 				return sortedFilmsByWatchedDate;
 			default:
 				const defaultSortedFilms = _.orderBy(films, ['movieId'], ["asc"]);

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import StarRatings from 'react-star-ratings';
+import { format } from 'date-fns'
 import { ThemeContext } from '../store';
 import { FilmDescription, FilmDetailsWrapper, FilmImage, FilmItemContainer, FilItemImageWrapper, DayBadge, DateBadge } from './styled';
 
@@ -19,7 +20,11 @@ export default function FilmItem({ movieId, moviePoster, movieName, movieRating,
 						<span>Day: { dayWatched }</span>
 					</DayBadge>
 					<DateBadge>
-						<span>{ dateWatched }</span>
+						<span>{
+							typeof dateWatched === "string" ?
+								dateWatched :
+								format(dateWatched * 1000, "dd.MM.yy")
+						}</span>
 					</DateBadge>
 				
 				<FilItemImageWrapper
@@ -63,7 +68,7 @@ FilmItem.propTypes = {
 	movieYear: PropTypes.number.isRequired,
 	movieRating: PropTypes.number.isRequired,
 	dayWatched: PropTypes.string.isRequired,
-	dateWatched: PropTypes.string,
+	dateWatched: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
 	movieDescription: PropTypes.string.isRequired,
 	movieId: PropTypes.number.isRequired,
 	jwId: PropTypes.string
