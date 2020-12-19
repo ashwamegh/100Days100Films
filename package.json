@@ -2,6 +2,7 @@
   "name": "100days100films",
   "description": "A project for 100 films in straight 100 days",
   "version": "0.0.1",
+  "private": true,
   "author": "Shashank Shekhar(shashank7200@gmail.com)",
   "dependencies": {
     "@mdx-js/mdx": "^1.1.5",
@@ -34,7 +35,7 @@
   "keywords": [
     "gatsby"
   ],
-  "license": "MIT",
+  "license": "CC-BY-SA-4.0",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
