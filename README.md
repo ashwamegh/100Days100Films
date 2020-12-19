@@ -1,9 +1,8 @@
-<a href="https://100days100films.com" target="_blank">
+<a href="https://100days100films.com" target="_blank" style="width:100%; text-align:center;display:block">
 	<img src="https://res.cloudinary.com/ashwamegh/image/upload/v1608399317/100Days100Films/Screenshots/logo_yfarpd.png" height="auto" width="400px"
 	/>
 </a>
 
-<br/>
 <br/>
 
 <strong>Logging all the movies, watched in consecutive 100 days in the times of COVID-19.</strong>
