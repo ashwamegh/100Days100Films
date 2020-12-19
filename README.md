@@ -2,11 +2,11 @@
 
 <strong>Logging all the movies, watched in consecutive 100 days in the times of COVID-19.</strong>
 
-
-[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+[![Built with Gatsby](https://img.shields.io/badge/-built%20with%20gatsby-blueviolet?logo=gatsby)](https://gatsbyjs.org/)
 [![styled with styled components](https://img.shields.io/badge/styled%20with-styled%20components-%23ff69b4)](https://github.com/styled-components/styled-components)
 [![GitHub issues](https://img.shields.io/github/issues/ashwamegh/100Days100Films.svg?&colorB=ff0000)](https://github.com/ashwamegh/100Days100Films/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/ashwamegh/100Days100Films.svg?colorB=1FBF14)](https://github.com/ashwamegh/100Days100Films/pulls)
+[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
 <p>
   <a href="https://twitter.com/intent/follow?screen_name=ashwameghsocial">
